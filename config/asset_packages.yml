@@ -1,0 +1,16 @@
+--- 
+javascripts: 
+- base: 
+  - prototype
+  - effects
+  - dragdrop
+  - controls
+  - application
+stylesheets: 
+- base: 
+  - default
+- admin:
+  - default
+  - admin
+- dialog:
+  - dialog

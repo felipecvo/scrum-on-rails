@@ -1,0 +1,59 @@
+<% (@user.password = @user.password_confirmation = nil) rescue nil %>
+
+<% content_for :header do -%>
+Create a new <%= configatron.site_name %> account
+<% end -%>
+
+<p>
+	To access <%= configatron.site_name %> you may sign up with your OpenID. If you don't have an OpenID yet, we recommend <a href="http://www.myopenid.com">MyOpenID</a>.
+</p>
+
+
+<% form_for :user, :url => users_path do |f| -%>
+	<%= error_messages_for :user %>
+	<fieldset id="openid_form">
+		<legend>Signup with OpenID</legend>
+		<p><label for="openid_url">OpenID URL</label><br/>
+		<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %></p>
+		
+		<div class="js_option">
+			<%= link_to_function "... or signup the old-fashioned way.", 
+			"Element.hide('openid_form');
+			 Element.show('oldfashioned_form');"
+			%>
+		</div>
+	</fieldset>
+	
+
+	
+	<fieldset id="oldfashioned_form" style="display: none">	
+		<legend>Your Details</legend>
+		<p><label for="login">Login</label><br/>
+		<%= f.text_field :login %></p>
+
+		<p><label for="email">Email</label><br/>
+		<%= f.text_field :email %></p>
+
+		<p><label for="password">Password</label><br/>
+		<%= f.password_field :password %></p>
+
+		<p><label for="password_confirmation">Confirm Password</label><br/>
+		<%= f.password_field :password_confirmation %></p>
+		
+		<div class="js_option">
+			<%= link_to_function "... or signup with OpenID.", 
+			"Element.hide('oldfashioned_form');
+			 Element.show('openid_form');"
+			%>
+		</div>
+		
+	</fieldset>
+	
+	<ul>
+		<li><%= link_to "Already signed up? Login now!", login_url %></li>
+	</ul>
+	
+	<div id="submitbutton">
+		<p><%= submit_tag 'Sign up' %></p>
+	</div>
+<% end %>

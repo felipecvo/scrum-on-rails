@@ -1,0 +1,9 @@
+<h3>Profile</h3>
+
+<p><%= link_to "Update my profile", edit_profile_url(current_user) %></p>
+
+<table class="overview">
+	<% @profile.public_attributes.each do |column| -%>
+		<%= cell "#{column.humanize}", "#{@profile.send(column) || '-'}" %>
+	<% end -%>
+</table>

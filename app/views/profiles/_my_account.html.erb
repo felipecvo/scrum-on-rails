@@ -1,0 +1,34 @@
+<% content_for :sidebar do -%>
+<h2>My account</h2>
+
+<div id="gravatar">
+	<%= gravatar_for @user, :size => 128 %>
+</div>
+
+<ul>
+	<li><%= link_to "Update my profile", edit_profile_url(current_user) %></li>
+</ul>
+
+<% if @user.not_using_openid? %>
+<ul>
+	<li><%= link_to "Change my email address", edit_email_user_url(@user) %></li>
+	<li><%= link_to "Change my password", edit_password_user_url(@user) %></li>
+</ul>
+<% end %>
+
+<% unless admin? -%>
+<ul>
+	<li><%= link_to "Delete my account", user_url(current_user), :method => :delete, :confirm => "Are you sure you want to schedule your account for deletion? All data linked to your account on #{configatron.site_name} will be removed from our systems.\n\nTHIS ACTION CANNOT BE UNDONE!\n\nThanks for using #{configatron.site_name}. We hope to see you again soon!"%></li>
+</ul>
+<% end -%>
+
+<p>
+	<strong>How do I change my avatar?</strong>
+</p>
+
+<p>
+	<%= configatron.site_name %> uses <%= link_to "Gravatar", "http://gravatar.com" %> to retrieve user avatars, based on their e-mail address.
+	<br />
+	<%= link_to "Gravatar", "http://gravatar.com" %> is free to use. <%= link_to "Sign up now", "http://gravatar.com/signup" %> if you don't use <%= link_to "Gravatar", "http://gravatar.com" %> already.
+</p>
+<% end -%>

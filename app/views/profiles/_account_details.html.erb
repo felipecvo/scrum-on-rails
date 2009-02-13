@@ -1,0 +1,22 @@
+<h3>Account details</h3>
+<table class="overview">
+	<%= cell "Login", h(@user.login) %>
+	
+	<% if ! @user.not_using_openid? %>
+	<%= cell "OpenID URL", h(@user.identity_url) %>
+	<% end %>
+	
+	<%= cell_separator %>
+	
+	<% change_email_text = @user.not_using_openid? ? " <small>#{link_to "change", edit_email_user_url(@user)}</small>" : "" %>
+	
+	<%= cell "Email", "#{h(@user.email)}#{change_email_text}" %>
+	<% if @user.not_using_openid? %>
+	<%= cell "Password", "#{"*"*8} <small>#{link_to "change", edit_password_user_url(@user)}</small>" %>
+	<% end %>
+	
+	<%= cell_separator %>
+	
+	<%= cell "Account created", @user.created_at.to_s(:long) %>
+	<%= cell "Last updated", @user.updated_at.to_s(:long) %>
+</table>
