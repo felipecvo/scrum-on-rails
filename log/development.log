@@ -316,3 +316,161 @@ Rendered shared/_global_links (27.8ms)
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "settings" [0m
 Rendered admin/shared/_tabs (28.9ms)
 Completed in 98ms (View: 75, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-13 16:10:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+Rendered shared/_global_links (0.8ms)
+Rendered shared/_tabs (9.1ms)
+Completed in 126ms (View: 122, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-02-13 16:10:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Completed in 30ms (View: 20, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-13 16:10:55) [POST]
+  Parameters: {"openid_url"=>"", "remember_me"=>"1", "commit"=>"Log in »", "action"=>"create", "authenticity_token"=>"971abce56a53311cf8814a8d8261e8f029b6a2df", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'admin') AND (users.state = 'active') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-02-13 18:10:55', "remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf', "remember_token_expires_at" = '2009-02-27 18:10:55' WHERE "id" = 1[0m
+Cookie set: auth_token=3be0cc7619087045789e41e5165a836ee4b27dbf; path=/; expires=Fri, 27 Feb 2009 18:10:55 GMT
+Redirected to /
+Completed in 186ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-13 16:10:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (5.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (1.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (31.6ms)
+Rendered shared/_tabs (2.2ms)
+Completed in 53ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing Admin::DashboardController#index (for 127.0.0.1 at 2009-02-13 16:11:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/dashboard"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendering template within layouts/admin
+Rendering admin/dashboard/index
+Rendered admin/dashboard/_sidebar (0.5ms)
+Rendered shared/_global_links (7.4ms)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (21.5ms)
+Completed in 75ms (View: 47, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-02-13 16:11:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+  [4;36;1mUser Load (4.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+Rendered shared/_global_links (5.3ms)
+  [4;35;1mSQL (3.8ms)[0m   [0mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (25.7ms)
+Completed in 136ms (View: 64, DB: 10) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::DashboardController#index (for 127.0.0.1 at 2009-02-13 16:11:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/dashboard"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.7ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendering template within layouts/admin
+Rendering admin/dashboard/index
+Rendered admin/dashboard/_sidebar (0.4ms)
+Rendered shared/_global_links (9.4ms)
+  [4;36;1mSQL (3.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (119.6ms)
+Completed in 173ms (View: 144, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-02-13 16:11:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (1.1ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+Rendered shared/_global_links (0.0ms)
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (16.5ms)
+Completed in 76ms (View: 43, DB: 3) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::DashboardController#index (for 127.0.0.1 at 2009-02-13 16:11:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/dashboard"}
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendering template within layouts/admin
+Rendering admin/dashboard/index
+Rendered admin/dashboard/_sidebar (0.4ms)
+Rendered shared/_global_links (103.1ms)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (13.7ms)
+Completed in 196ms (View: 145, DB: 4) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::DashboardController#index (for 127.0.0.1 at 2009-02-13 16:11:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/dashboard"}
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendering template within layouts/admin
+Rendering admin/dashboard/index
+Rendered admin/dashboard/_sidebar (0.0ms)
+Rendered shared/_global_links (14.7ms)
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (20.6ms)
+Completed in 94ms (View: 53, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-02-13 16:11:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+Rendered shared/_global_links (1.3ms)
+  [4;36;1mSQL (3.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (16.4ms)
+Completed in 203ms (View: 156, DB: 6) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::DashboardController#index (for 127.0.0.1 at 2009-02-13 16:11:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/dashboard"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (8.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendering template within layouts/admin
+Rendering admin/dashboard/index
+Rendered admin/dashboard/_sidebar (4.7ms)
+Rendered shared/_global_links (13.8ms)
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (20.1ms)
+Completed in 100ms (View: 59, DB: 9) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-02-13 16:11:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.9ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+  [4;35;1mUser Load (17.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+Rendered shared/_global_links (1.4ms)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "settings" [0m
+Rendered admin/shared/_tabs (27.1ms)
+Completed in 269ms (View: 70, DB: 19) | 200 OK [http://localhost/admin/users]
