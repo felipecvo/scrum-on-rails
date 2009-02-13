@@ -1,0 +1,292 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-02-13 11:39:17) [GET]
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-02-13 11:39:17) [GET]
+
+
+SQLite3::CantOpenException (could not open database: unable to open database file):
+    /home/sajunior/.gem/ruby/1.8/gems/sqlite3-ruby-1.2.4/lib/sqlite3/errors.rb:62:in `check'
+    /home/sajunior/.gem/ruby/1.8/gems/sqlite3-ruby-1.2.4/lib/sqlite3/database.rb:79:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/sqlite3_adapter.rb:13:in `new'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/sqlite3_adapter.rb:13:in `sqlite3_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:121:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:113:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (101.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.1ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (37.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (4.8ms)[0m   [0mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255), "identifier" varchar(255), "description" text, "field_type" varchar(255) DEFAULT 'string', "value" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "password_reset_code" varchar(255), "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (4.9ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (11.9ms)[0m   [0;1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "real_name" varchar(255), "location" varchar(255), "website" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (6.6ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mRole Create (0.6ms)[0m   [0mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'admin') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'nospam@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.7ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "created_at", "crypted_password", "remember_token_expires_at", "password_reset_code", "deleted_at", "updated_at", "activation_code", "remember_token", "login", "identity_url", "email", "state") VALUES('', '72b0c1cb682657454ed042fd28c64dd1c0ff84c3', NULL, '2009-02-13 17:36:43', '8f282f792c8853d741d36b644e6d1e161a28a8ef', NULL, NULL, NULL, '2009-02-13 17:36:43', '10938a228ad4302f220acd408e441e071c977360', NULL, 'admin', NULL, 'nospam@example.com', 'pending')[0m
+  [4;35;1mProfile Create (0.3ms)[0m   [0mINSERT INTO "profiles" ("real_name", "location", "created_at", "updated_at", "user_id", "website") VALUES(NULL, NULL, '2009-02-13 17:36:43', '2009-02-13 17:36:43', NULL, NULL)[0m
+  [4;36;1mProfile Load (0.3ms)[0m   [0;1mSELECT * FROM "profiles" WHERE ("profiles".user_id = 1) LIMIT 1[0m
+  [4;35;1mProfile Update (0.1ms)[0m   [0mUPDATE "profiles" SET "updated_at" = '2009-02-13 17:36:43', "user_id" = 1 WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Fri, 13 Feb 2009 15:36:43 -0200
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+An account has been created for you at Scrum on Rails. You login credentials are:
+
+  Username: admin
+  Password: admin
+
+Before you can access your account, we require you to activate it. You can activate your account now by visiting the following url:
+
+  http://http://localhost:3000/activate/10938a228ad4302f220acd408e441e071c977360
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-02-13 17:36:43', "activated_at" = '2009-02-13 17:36:43', "activation_code" = NULL, "state" = 'active' WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Fri, 13 Feb 2009 15:36:43 -0200
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello, 
+
+admin, your account has been activated. You may now use your login credentials to access your account at Scrum on Rails.
+
+  http://http://localhost:3000/
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090213172335')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (6.4ms)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("profiles")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("settings")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-02-13 15:37:02) [GET]
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 84ms (View: 1, DB: 2) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-13 15:39:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '25fdb293a022d2dc757d6f5f0fb6fcd155c9e3bb') LIMIT 1[0m
+Rendered shared/_global_links (7.2ms)
+Rendered shared/_tabs (3.7ms)
+Completed in 51ms (View: 31, DB: 0) | 200 OK [http://localhost/dashboard]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-02-13 15:39:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-13 15:39:14) [POST]
+  Parameters: {"openid_url"=>"", "commit"=>"Log in »", "action"=>"create", "authenticity_token"=>"2c2776770b1ebee04d40f52785690a1ca1aa3cd7", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;35;1mUser Load (11.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'admin') AND (users.state = 'active') LIMIT 1[0m
+Cookie set: auth_token=; path=/
+Redirected to /
+Completed in 62ms (DB: 11) | 302 Found [http://localhost/session]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-13 15:40:56) [GET]
+
+
+ArgumentError (wrong number of arguments (2 for 1)):
+    /config/routes.rb:49:in `root'
+    /config/routes.rb:49
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:210:in `draw'
+    /config/routes.rb:2
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:255:in `load_routes!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:236:in `load!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:250:in `reload'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:148:in `reload_application'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:178:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:178:in `evaluate_method'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:166:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:90:in `run'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:90:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:90:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:90:in `run'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:277:in `run_callbacks'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:109:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (81.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.2ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-13 15:41:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.2ms)
+Rendered shared/_tabs (3.2ms)
+Completed in 48ms (View: 45, DB: 0) | 200 OK [http://localhost/]
