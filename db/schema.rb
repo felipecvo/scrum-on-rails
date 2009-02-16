@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090213172335) do
+ActiveRecord::Schema.define(:version => 20090216201439) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20090213172335) do
     t.text     "description"
     t.string   "field_type",  :default => "string"
     t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.string   "as_a"
+    t.text     "i_want_to"
+    t.text     "so_i_can"
+    t.integer  "estimate"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
