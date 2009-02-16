@@ -1,3 +1,2 @@
 loggit
-db/schema.rb
-log
+db/development.sqlite3
