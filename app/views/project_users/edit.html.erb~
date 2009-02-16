@@ -1,0 +1,24 @@
+<h1>New project_users</h1>
+
+<% form_tag :action => "create" do |f| %>
+	<%= hidden_field_tag 'pid', @project.id %>
+	<table>
+	<% for user in @users %>
+		<% project_user = get_project_user_by_user(@project_users, user) %>
+		<tr>
+		  <td>
+				<input type="checkbox" value="" id="user_id<%=user.id%>" name="user_id<%=user.id%>" <%= "checked" if !project_user.nil? %> />
+		  <td><%=h user.login %></td>
+		  <td>
+				<input type="text" id="user_type<%=user.id%>" name="user_type<%=user.id%>" value="<%= project_user.user_type %>" maxlength="2" />
+</td>
+		</tr>
+	<% end %>
+	</table>
+  <p>
+    <%= submit_tag "Add" %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', :controller => "project_users", :action => "index", :pid => @project.id %>

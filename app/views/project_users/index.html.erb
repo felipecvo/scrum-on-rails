@@ -1,0 +1,23 @@
+<% content_for :header do -%>
+	Usuários do Projeto <%= @project.name %>
+<% end -%>
+
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>User type</th>
+  </tr>
+
+<% for project_users in @project_users %>
+  <tr>
+    <td><%=h project_users.user.login %></td>
+    <td><%=h project_users.user_type %></td>
+    <td><%= link_to 'Destroy', project_users, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Edit', :controller => "project_users", :action => "edit", :id => @project.id %>
