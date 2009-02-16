@@ -10,6 +10,10 @@ ActionController::Routing::Routes.draw do |map|
     products.resources :stories
   end
 
+  map.resources :projects do |projects|
+    products.resources :stories
+  end
+
   # RESTful rewrites
 
   map.signup   '/signup',   :controller => 'users',    :action => 'new'
