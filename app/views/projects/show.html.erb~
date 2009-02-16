@@ -1,14 +1,14 @@
 <% content_for :header do -%>
-New project
+	Informações do Projeto
 <% end -%>
 
 <p>
-  <b>Name:</b>
+  <b>Nome:</b>
   <%=h @project.name %>
 </p>
 
 <p>
-  <b>Uri:</b>
+  <b>Url:</b>
   <%=h @project.uri %>
 </p>
 

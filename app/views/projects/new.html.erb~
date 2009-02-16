@@ -1,18 +1,21 @@
-<h1>New project</h1>
+<% content_for :header do -%>
+Novo projeto
+<% end -%>
+
 
 <% form_for(@project) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nome" %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :uri %><br />
+    <%= f.label :uri, "Url" %><br />
     <%= f.text_field :uri %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Criar" %>
   </p>
 <% end %>
 

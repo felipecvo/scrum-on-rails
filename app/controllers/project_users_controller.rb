@@ -87,5 +87,6 @@ class ProjectUsersController < ApplicationController
 				return u
 			end
 		end
+		return nil
 	end
 end

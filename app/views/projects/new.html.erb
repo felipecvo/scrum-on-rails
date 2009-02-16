@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-New project
+Novo projeto
 <% end -%>
 
 
@@ -7,16 +7,16 @@ New project
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nome" %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :uri %><br />
+    <%= f.label :uri, "Url" %><br />
     <%= f.text_field :uri %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "criar" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', projects_path %>
+<%= link_to 'voltar', projects_path %>

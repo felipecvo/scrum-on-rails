@@ -1,24 +1,34 @@
-<h1>New project_users</h1>
+<% content_for :header do -%>
+	Gerenciar usuários do Projeto <%= @project.name %>
+<% end -%>
+
 
 <% form_tag :action => "create" do |f| %>
-	<%= hidden_field_tag 'pid', @project.id %>
+	<p>	<%= hidden_field_tag 'pid', @project.id %></p>
+
 	<table>
+	 <tr>
+		<th></th>
+    <th>Usuário</th>
+    <th>Tipo</th>
+  </tr>
+
 	<% for user in @users %>
 		<% project_user = get_project_user_by_user(@project_users, user) %>
 		<tr>
 		  <td>
-				<input type="checkbox" value="" id="user_id<%=user.id%>" name="user_id<%=user.id%>" <%= "checked" if !project_user.nil? %> />
+				<input type="checkbox" value="" id="user_id<%=user.id%>" name="user_id<%=user.id%>" <%= "checked" unless project_user.nil? %> />
 		  <td><%=h user.login %></td>
 		  <td>
-				<input type="text" id="user_type<%=user.id%>" name="user_type<%=user.id%>" value="<%= project_user.user_type %>" maxlength="2" />
+				<input type="text" id="user_type<%=user.id%>" name="user_type<%=user.id%>" value="<%= project_user.user_type unless project_user.nil? %>" maxlength="2" />
 </td>
 		</tr>
 	<% end %>
 	</table>
   <p>
-    <%= submit_tag "Add" %>
+    <%= submit_tag "salvar" %>
   </p>
 <% end %>
 
 
-<%= link_to 'Back', :controller => "project_users", :action => "index", :pid => @project.id %>
+<%= link_to 'voltar', :controller => "project_users", :action => "index", :pid => @project.id %>

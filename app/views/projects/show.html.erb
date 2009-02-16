@@ -1,17 +1,17 @@
 <% content_for :header do -%>
-	Show Project
+	Informações do Projeto
 <% end -%>
 
 <p>
-  <b>Name:</b>
+  <b>Nome:</b>
   <%=h @project.name %>
 </p>
 
 <p>
-  <b>Uri:</b>
+  <b>Url:</b>
   <%=h @project.uri %>
 </p>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'editar', edit_project_path(@project) %> |
+<%= link_to 'voltar', projects_path %>
