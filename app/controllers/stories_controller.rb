@@ -1,5 +1,9 @@
 class StoriesController < ApplicationController
+
   before_filter :load_project
+
+
+  #alterei...
 
   # GET /projects/1/stories
   # GET /projects/1/stories.xml
