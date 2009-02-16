@@ -16,7 +16,7 @@
     <td><%=h story.so_i_can %></td>
     <td><%= link_to 'Show', project_story_path(@project, story) %></td>
     <td><%= link_to 'Edit', edit_project_story_path(@project, story) %></td>
-    <td><%= link_to 'Destroy', project_story_path(@project, story), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

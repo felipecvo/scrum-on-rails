@@ -1,4 +1,4 @@
-<h1>New story</h1>
+<h1>Editing story</h1>
 
 <% form_for([@project,@story]) do |f| %>
   <%= f.error_messages %>
@@ -20,8 +20,9 @@
     <%= f.text_area :so_i_can %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', project_stories_path(@project) %>
+<%= link_to 'Show', project_story_path(@project, @story) %> |
+<%= link_to 'Back', stories_path %>

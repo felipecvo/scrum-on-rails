@@ -1,6 +1,6 @@
 <h1>New story</h1>
 
-<% form_for([@project,@story]) do |f| %>
+<% form_for(@story) do |f| %>
   <%= f.error_messages %>
 
   <p>

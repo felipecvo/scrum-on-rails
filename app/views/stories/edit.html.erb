@@ -1,6 +1,6 @@
 <h1>Editing story</h1>
 
-<% form_for(@story) do |f| %>
+<% form_for([@project,@story]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -24,5 +24,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @story %> |
-<%= link_to 'Back', stories_path %>
+<%= link_to 'Show', project_story_path(@project, @story) %> |
+<%= link_to 'Back', project_stories_path(@project) %>
