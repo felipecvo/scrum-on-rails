@@ -1,0 +1,7 @@
+loggit
+<<<<<<< HEAD:.gitignore~
+db/schema.rb
+log
+=======
+db/development.sqlite3
+>>>>>>> 8948cc036a542100b074c979e25f43d0660e650a:.gitignore~
