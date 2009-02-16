@@ -1,5 +1,4 @@
 class StoriesController < ApplicationController
-
   before_filter :load_project
 
   # GET /projects/1/stories
