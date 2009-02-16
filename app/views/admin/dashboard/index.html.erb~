@@ -5,5 +5,3 @@
 <% content_for :sidebar do -%>
 	<%= render :partial => 'admin/dashboard/sidebar' %>
 <% end -%>
-
-<% # TODO: Add your own overview widgets here. Show some statistics etc. %>

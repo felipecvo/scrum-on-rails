@@ -1,5 +1,10 @@
 # See how all your routes lay out with "rake routes"
 ActionController::Routing::Routes.draw do |map|
+  map.resources :project_users
+  map.resources :projects
+
+  #map.connect 'list_users/:pid',  :controller => 'project_users', :action => 'index'
+
 
   # RESTful rewrites
 

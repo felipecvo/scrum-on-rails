@@ -1,5 +1,10 @@
 # See how all your routes lay out with "rake routes"
 ActionController::Routing::Routes.draw do |map|
+  map.resources :project_users
+  map.resources :projects
+
+  #map.connect 'list_users/:pid',  :controller => 'project_users', :action => 'index'
+
 
   # RESTful rewrites
 
@@ -46,7 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   # Dashboard as the default location
-  map.root "", :controller => 'dashboard', :action => 'index'
+  map.root :controller => 'dashboard', :action => 'index'
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
