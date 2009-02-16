@@ -6,6 +6,10 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect 'list_users/:pid',  :controller => 'project_users', :action => 'index'
 
 
+  map.resources :projects do |projects|
+    products.resources :stories
+  end
+
   # RESTful rewrites
 
   map.signup   '/signup',   :controller => 'users',    :action => 'new'

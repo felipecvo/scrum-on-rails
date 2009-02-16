@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(:version => 20090216181916) do
     t.datetime "updated_at"
   end
 
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.string   "as_a"
+    t.text     "i_want_to"
+    t.text     "so_i_can"
+    t.integer  "estimate"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
     t.string   "identity_url"
