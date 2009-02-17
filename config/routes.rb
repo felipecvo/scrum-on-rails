@@ -1,15 +1,10 @@
 # See how all your routes lay out with "rake routes"
 ActionController::Routing::Routes.draw do |map|
-  map.resources :sprints
-
   map.resources :wikis
-
   map.resources :project_users
-
-  #map.connect 'list_users/:pid',  :controller => 'project_users', :action => 'index'
-
   map.resources :projects do |projects|
-    projects.resources :stories, :member => { :estimate => :post }, :collection => { :current_sprint => :get, :sort => :post }
+    projects.resources :stories, :member=>{:estimate=>:post}, :collection=>{:current_sprint=>:get,:sort =>:post}
+    projects.resources :sprints
   end
 
   # RESTful rewrites

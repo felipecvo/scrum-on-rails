@@ -1,11 +1,10 @@
 class SprintsController < ApplicationController
-
-
+  include ProjectDependent
 
   # GET /project/1/sprints
   # GET /project/1/sprints.xml
   def index
-    @sprints = Sprint.find(:all)
+    @sprints = @project.sprints.find(:all, :order => "start_date desc" )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +15,7 @@ class SprintsController < ApplicationController
   # GET /project/1/sprints/1
   # GET /project/1/sprints/1.xml
   def show
-    @sprint = Sprint.find(params[:id])
+    @sprint = @project.sprints.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +26,15 @@ class SprintsController < ApplicationController
   # GET /project/1/sprints/new
   # GET /project/1/sprints/new.xml
   def new
-    @sprint = Sprint.new
+    if @project.sprints.count == 0
+      @sprint = Sprint.create_new(@project)
+    elsif @project.sprints.last.end_date < Date.today
+      @sprint = Sprint.create_next(@project.sprints.last)
+    else
+      flash[:notice] = "Existe ainda um sprint em andamento"
+      redirect_to project_sprints_url(@project)
+      return
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,18 +44,18 @@ class SprintsController < ApplicationController
 
   # GET /project/1/sprints/1/edit
   def edit
-    @sprint = Sprint.find(params[:id])
+    @sprint = @project.sprints.find(params[:id])
   end
 
   # POST /project/1/sprints
   # POST /project/1/sprints.xml
   def create
-    @sprint = Sprint.new(params[:sprint])
+    @sprint = @project.sprints.build(params[:sprint])
 
     respond_to do |format|
       if @sprint.save
         flash[:notice] = 'Sprint was successfully created.'
-        format.html { redirect_to(@sprint) }
+        format.html { redirect_to project_sprints_path(@project) }
         format.xml  { render :xml => @sprint, :status => :created, :location => @sprint }
       else
         format.html { render :action => "new" }
@@ -60,12 +67,12 @@ class SprintsController < ApplicationController
   # PUT /project/1/sprints/1
   # PUT /project/1/sprints/1.xml
   def update
-    @sprint = Sprint.find(params[:id])
+    @sprint = @project.sprints.find(params[:id])
 
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
         flash[:notice] = 'Sprint was successfully updated.'
-        format.html { redirect_to(@sprint) }
+        format.html { redirect_to( project_sprints_path(@project)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,11 +84,11 @@ class SprintsController < ApplicationController
   # DELETE /project/1/sprints/1
   # DELETE /project/1/sprints/1.xml
   def destroy
-    @sprint = Sprint.find(params[:id])
+    @sprint = @project.sprints.find(params[:id])
     @sprint.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sprints_url) }
+      format.html { redirect_to(project_sprints_url(@project)) }
       format.xml  { head :ok }
     end
   end
