@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  as_a: MyString
+  i_want_to: MyText
+  so_i_can: MyText
+
+two:
+  title: MyString
+  as_a: MyString
+  i_want_to: MyText
+  so_i_can: MyText

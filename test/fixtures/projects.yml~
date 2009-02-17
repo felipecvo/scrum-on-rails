@@ -5,5 +5,5 @@ one:
   uri: http://projeto1.scrumonrails.com
 
 two:
-  name: Projeto 2
-  uri: http://projeto2.scrumonrails.com
+  name: MyString
+  uri: MyString
