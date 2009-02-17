@@ -1,6 +1,0 @@
-<% content_for :header do -%>
-	My <%= configatron.site_name %>
-<% end -%>
-
-<% content_for :sidebar do -%>
-<% end -%>

@@ -1,7 +1,0 @@
-<% content_for :header do -%>
-	<%= configatron.site_name %> Administration
-<% end -%>
-
-<% content_for :sidebar do -%>
-	<%= render :partial => 'admin/dashboard/sidebar' %>
-<% end -%>
