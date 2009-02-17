@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+<<<<<<< HEAD:test/fixtures/projects.yml
+  name: Projeto 1
+  uri: http://projeto1.scrumonrails.com
+=======
+  id: 1
+  name: Scrum On Rails
+  uri: scrumonrails
+>>>>>>> 00361c60f7555411d0ab4440ab0bd783041acfc8:test/fixtures/projects.yml
+
+<<<<<<< HEAD:test/fixtures/projects.yml
+two:
+  name: Projeto 2
+  uri: http://projeto2.scrumonrails.com
+=======
+#two:
+#  name: MyString
+#  uri: MyString
+>>>>>>> 00361c60f7555411d0ab4440ab0bd783041acfc8:test/fixtures/projects.yml

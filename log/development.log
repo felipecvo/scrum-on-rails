@@ -1,3 +1,4 @@
+<<<<<<< HEAD:log/development.log
   [4;36;1mSQL (1.2ms)[0m   [0;1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -3541,3 +3542,5 @@ Rendering stories/index
 Rendered shared/_global_links (19.4ms)
 Rendered shared/_tabs (2.0ms)
 Completed in 76ms (View: 42, DB: 3) | 200 OK [http://localhost/projects/1/stories]
+=======
+>>>>>>> a5c760b1fb16de47f4fa984f0dd6d192ca7cc54f:log/development.log

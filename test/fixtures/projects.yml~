@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: Projeto 1
+  uri: http://projeto1.scrumonrails.com
+
+two:
+  name: MyString
+  uri: MyString

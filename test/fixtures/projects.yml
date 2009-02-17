@@ -5,6 +5,7 @@ one:
   name: Scrum On Rails
   uri: scrumonrails
 
-#two:
-#  name: MyString
-#  uri: MyString
+two:
+  id: 2 
+  name2: Projeto 2
+  uri: http://projeto2.scrumonrails.com
