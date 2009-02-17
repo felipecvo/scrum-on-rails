@@ -3185,3 +3185,359 @@ Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:32:10) [POST]
   [4;36;1mStory Update (27.8ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
   [4;35;1mStory Update (31.4ms)[0m   [0mUPDATE "stories" SET position=3 WHERE (id='953125641') [0m
 Completed in 115ms (View: 0, DB: 76) | 200 OK [http://localhost/projects/1/stories/sort]
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+Migrating to CreateProjects (20090216181729)
+Migrating to CreateProjectUsers (20090216181916)
+Migrating to CreateStories (20090216201439)
+Migrating to CreateWikis (20090217140444)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (6.5ms)[0m   [0mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090217140444')[0m
+Migrating to AddPriorityToStories (20090217144300)
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: duplicate column name: position: ALTER TABLE "stories" ADD "position" integer[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (7.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255), "identifier" varchar(255), "description" text, "field_type" varchar(255) DEFAULT 'string', "value" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (6.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "password_reset_code" varchar(255), "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (4.3ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "real_name" varchar(255), "location" varchar(255), "website" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.2ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mRole Create (0.4ms)[0m   [0mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'admin') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'nospam@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "created_at", "crypted_password", "remember_token_expires_at", "password_reset_code", "deleted_at", "updated_at", "activation_code", "remember_token", "login", "identity_url", "email", "state") VALUES('', 'dcfb6486e68dc625df2d829ebfc02416b6099072', NULL, '2009-02-17 16:54:32', '0d6e74184d78782ed3e8bee677ffa9df1dfffc24', NULL, NULL, NULL, '2009-02-17 16:54:32', '4d8bc8a4c1b8376a5c56dfc4c43bbbc1f57eb556', NULL, 'admin', NULL, 'nospam@example.com', 'pending')[0m
+  [4;35;1mProfile Create (0.3ms)[0m   [0mINSERT INTO "profiles" ("real_name", "location", "created_at", "updated_at", "user_id", "website") VALUES(NULL, NULL, '2009-02-17 16:54:32', '2009-02-17 16:54:32', NULL, NULL)[0m
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM "profiles" WHERE ("profiles".user_id = 1) LIMIT 1[0m
+  [4;35;1mProfile Update (0.2ms)[0m   [0mUPDATE "profiles" SET "updated_at" = '2009-02-17 16:54:32', "user_id" = 1 WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 13:54:32 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+An account has been created for you at Scrum on Rails. You login credentials are:
+
+  Username: admin
+  Password: admin
+
+Before you can access your account, we require you to activate it. You can activate your account now by visiting the following url:
+
+  http://http://localhost:3000/activate/4d8bc8a4c1b8376a5c56dfc4c43bbbc1f57eb556
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-02-17 16:54:32', "activated_at" = '2009-02-17 16:54:32', "activation_code" = NULL, "state" = 'active' WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 13:54:32 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello, 
+
+admin, your account has been activated. You may now use your login credentials to access your account at Scrum on Rails.
+
+  http://http://localhost:3000/
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090213172335')[0m
+Migrating to CreateProjects (20090216181729)
+  [4;35;1mSQL (21.1ms)[0m   [0mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (11.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181729')[0m
+Migrating to CreateProjectUsers (20090216181916)
+  [4;35;1mSQL (5.5ms)[0m   [0mCREATE TABLE "project_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "user_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181916')[0m
+Migrating to CreateStories (20090216201439)
+  [4;35;1mSQL (46.2ms)[0m   [0mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216201439')[0m
+Migrating to CreateWikis (20090217140444)
+  [4;35;1mSQL (24.8ms)[0m   [0mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (15.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090217140444')[0m
+Migrating to AddPriorityToStories (20090217144300)
+  [4;35;1mSQL (7.1ms)[0m   [0mALTER TABLE "stories" ADD "position" integer[0m
+  [4;36;1mSQL (44.2ms)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (24.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217144300')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("profiles")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("project_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("projects")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("settings")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("stories")[0m
+  [4;36;1mSQL (6.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("wikis")[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 13:56:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.9ms)
+Rendered shared/_tabs (6.6ms)
+Completed in 55ms (View: 50, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 13:56:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mRole Load (3.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.1ms)
+Rendered shared/_tabs (3.4ms)
+Completed in 211ms (View: 58, DB: 4) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 13:56:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProject Load (2.6ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mProjectUser Load (0.6ms)[0m   [0mSELECT * FROM "project_users" WHERE ("project_users".project_id = 1) [0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mWiki Load (0.7ms)[0m   [0;1mSELECT * FROM "wikis" WHERE ("wikis".project_id = 1) [0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (14.4ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 101ms (View: 71, DB: 7) | 200 OK [http://localhost/projects/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:56:30) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.8ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.1ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (18.9ms)
+Rendered shared/_tabs (3.9ms)
+Completed in 89ms (View: 49, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:56:36) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (7.7ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (4.5ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 48ms (View: 0, DB: 13) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:56:40) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (7.3ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (4.0ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 47ms (View: 0, DB: 12) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:56:43) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.9ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (17.5ms)
+Rendered shared/_tabs (3.0ms)
+Completed in 78ms (View: 42, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:56:48) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (4.9ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;36;1mStory Update (4.2ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 45ms (View: 0, DB: 10) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:56:49) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (1.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.8ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (18.5ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 77ms (View: 42, DB: 4) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:57:08) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (8.1ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (38.7ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 87ms (View: 0, DB: 48) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:57:10) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (9.3ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (5.7ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 230ms (View: 0, DB: 16) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:57:25) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (13.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (13.1ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (27.7ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 105ms (View: 0, DB: 54) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:57:28) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (8.9ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (24.8ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 75ms (View: 0, DB: 35) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:57:38) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (18.5ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (37.4ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 130ms (View: 0, DB: 57) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 13:57:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (13.6ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 58ms (View: 36, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 13:57:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mProjectUser Load (0.8ms)[0m   [0;1mSELECT * FROM "project_users" WHERE ("project_users".project_id = 1) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mWiki Load (2.7ms)[0m   [0mSELECT * FROM "wikis" WHERE ("wikis".project_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (12.3ms)
+Rendered shared/_tabs (6.6ms)
+Completed in 177ms (View: 150, DB: 6) | 200 OK [http://localhost/projects/1]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 14:00:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mProjectUser Load (0.7ms)[0m   [0mSELECT * FROM "project_users" WHERE ("project_users".project_id = 1) [0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mWiki Load (0.7ms)[0m   [0;1mSELECT * FROM "wikis" WHERE ("wikis".project_id = 1) [0m
+  [4;35;1mStory Load (1.1ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (13.1ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 169ms (View: 129, DB: 5) | 200 OK [http://localhost/projects/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 14:00:45) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (1.3ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (19.4ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 76ms (View: 42, DB: 3) | 200 OK [http://localhost/projects/1/stories]
