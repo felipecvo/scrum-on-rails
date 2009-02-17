@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  goal: MyText
+  goal: Sprint 1
   start_date: 2009-02-17
-  end_date: 2009-02-17
-  references: 
+  end_date: 2009-03-17
+  project_id: 1
 
 two:
-  goal: MyText
-  start_date: 2009-02-17
-  end_date: 2009-02-17
-  references: 
+  goal: Sprint 2
+  start_date: 2009-03-17
+  end_date: 2009-04-17
+  project_id: 1
