@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20090217140444) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "users", :force => true do |t|

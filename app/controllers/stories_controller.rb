@@ -1,10 +1,21 @@
 class StoriesController < ApplicationController
+  include ProjectDependent
+
+  before_filter :load_project
+
+  def sort
+    params[:stories].each_with_index do |id, index|
+      Story.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
+  end
+
   before_filter :require_authentication, :load_project
 
   # GET /projects/1/stories
   # GET /projects/1/stories.xml
   def index
-    @stories = @project.current_sprint_stories
+    @stories = @project.stories
 
     respond_to do |format|
       format.html # index.html.erb

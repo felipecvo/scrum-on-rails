@@ -2,17 +2,29 @@
 	Listing stories
 <% end -%>
 
+<style>
+  li .handle  {
+    font-size: 12px;
+    cursor: move;
+    color: #777;
+  }
+</style>
 
 
-<% for story in @stories %>
-  <h3><%= link_to( h(story.title), edit_project_story_path(@project, story)) %></h3>
+
+<ul id="stories">
+<% for story in @stories  %>
+  <% content_tag_for :li, story do %>
+    <h3><span class="handle"><%= h story.title %>&nbsp;(<%= link_to  "ver", edit_project_story_path(@project, story) %>)</span></h3>
     <p><strong>As a: </strong><%=h story.as_a %></p>
     <p><strong>I want to: </strong><%=h story.i_want_to %></p>
     <p><strong>So I can: </strong><%=h story.so_i_can %></td>
     &nbsp;
-    <%= link_to 'Destroy', project_story_path(@project, story), :confirm => 'Are you sure?', :method => :delete %>
- 
+    <%= link_to 'excluir', project_story_path(@project, story), :confirm => 'confirma ?', :method => :delete %>
+  <% end %>
 <% end %>
+</ul>
+<%= sortable_element("stories", :url => sort_project_stories_path, :handle => "handle") %>
 
 
 <br /><br />
