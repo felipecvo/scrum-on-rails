@@ -1,10 +1,19 @@
 loggit
 <<<<<<< HEAD:.gitignore
-tmp
 =======
-/db/development.sqlite3
-/db/schema.rb
-/log
-/tmp
->>>>>>> a7ec2a9f9593f7a6c73311044349eeef202af71c:.gitignore
 *~
+*.cache
+*.log
+*.pid
+tmp/**/*
+.DS\_Store
+doc/plugins
+>>>>>>> f27edbbc6730e6cfe80815fcaaa69e3fddc93d00:.gitignore
+db/*.sqlite3
+db/schema.rb
+<<<<<<< HEAD:.gitignore
+log
+tmp
+
+=======
+>>>>>>> f27edbbc6730e6cfe80815fcaaa69e3fddc93d00:.gitignore
