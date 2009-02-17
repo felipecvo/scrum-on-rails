@@ -1,4 +1,6 @@
-<h1>New story</h1>
+<% content_for :header do -%>
+	New story
+<% end -%>
 
 <% form_for([@project,@story]) do |f| %>
   <%= f.error_messages %>
@@ -13,11 +15,11 @@
   </p>
   <p>
     <%= f.label :i_want_to %><br />
-    <%= f.text_area :i_want_to %>
+    <%= f.text_field :i_want_to %>
   </p>
   <p>
     <%= f.label :so_i_can %><br />
-    <%= f.text_area :so_i_can %>
+    <%= f.text_field :so_i_can %>
   </p>
   <p>
     <%= f.submit "Create" %>
