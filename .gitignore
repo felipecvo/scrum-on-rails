@@ -1,6 +1,10 @@
 loggit
-/db/development.sqlite3
-/db/schema.rb
-/log
-/tmp
 *~
+*.cache
+*.log
+*.pid
+tmp/**/*
+.DS\_Store
+doc/plugins
+db/*.sqlite3
+db/schema.rb
