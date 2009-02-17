@@ -31,4 +31,4 @@
 <% end %>
 
 
-<%= link_to 'voltar', projects_path %>
+<%= link_to 'voltar', :controller => "project_users", :action => "index", :pid => @project.id %>

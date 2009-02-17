@@ -16,7 +16,7 @@
     <td><%=h project.uri %></td>
     <td><%= link_to 'detalhar', project %></td>
     <td><%= link_to 'editar', edit_project_path(project) %></td>
-    <td><%= link_to 'usuários', :controller => "project_users", :action => "edit", :id => project.id %></td>
+    <td><%= link_to 'usuários', :controller => "project_users", :action => "edit", :pid => project.id %></td>
   </tr>
 <% end %>
 </table>

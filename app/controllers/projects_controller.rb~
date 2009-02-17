@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :require_authentication
+  before_filter :load_project, :except => [:index, :new, :create,]
 
   # GET /projects
   # GET /projects.xml
