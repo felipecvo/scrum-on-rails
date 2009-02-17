@@ -709,3 +709,2479 @@ Rendering stories/new
 Rendered shared/_global_links (0.4ms)
 Rendered shared/_tabs (1.0ms)
 Completed in 27ms (View: 13, DB: 0) | 200 OK [http://localhost/projects/1/stories/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 09:29:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (8.4ms)
+Rendered shared/_tabs (5.1ms)
+Completed in 125ms (View: 121, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+Migrating to CreateProjects (20090216181729)
+Migrating to CreateProjectUsers (20090216181916)
+Migrating to CreateStories (20090216201439)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("profiles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("project_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("projects")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("settings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.4ms)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "real_name" varchar(255), "location" varchar(255), "website" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mCREATE TABLE "project_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "user_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (24.1ms)[0m   [0;1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (13.1ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (16.2ms)[0m   [0;1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255), "identifier" varchar(255), "description" text, "field_type" varchar(255) DEFAULT 'string', "value" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.2ms)[0m   [0;1mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (12.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "password_reset_code" varchar(255), "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (11.9ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090216201439')[0m
+  [4;36;1mSQL (11.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090216181916')[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090213172335')[0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090216181729')[0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 09:30:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (1.5ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (6.9ms)
+Rendered shared/_tabs (5.2ms)
+Completed in 117ms (View: 31, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-02-17 09:30:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"projects"}
+Rendering template within layouts/application
+Rendering projects/new
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (6.8ms)
+Rendered shared/_tabs (0.2ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-02-17 09:31:21) [POST]
+  Parameters: {"commit"=>"criar", "action"=>"create", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "project"=>{"name"=>"Scrum On Rails", "uri"=>"scrumonrails"}, "controller"=>"projects"}
+  [4;35;1mProject Create (0.7ms)[0m   [0mINSERT INTO "projects" ("name", "uri", "created_at", "updated_at") VALUES('Scrum On Rails', 'scrumonrails', '2009-02-17 12:31:21', '2009-02-17 12:31:21')[0m
+Redirected to #<Project:0xb686d984>
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 09:31:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;36;1mProject Load (1.8ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (5.7ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 37ms (View: 21, DB: 2) | 200 OK [http://localhost/projects/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 09:31:26) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.3ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (8.7ms)
+Rendered shared/_tabs (3.5ms)
+Completed in 45ms (View: 22, DB: 1) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-02-17 09:31:30) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"new", "controller"=>"stories"}
+  [4;35;1mProject Load (2.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/new
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (8.3ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 59ms (View: 27, DB: 3) | 200 OK [http://localhost/projects/1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-02-17 09:32:27) [POST]
+  Parameters: {"commit"=>"Create", "project_id"=>"1", "story"=>{"as_a"=>"Prodcut Owner", "title"=>"Criar backlog", "so_i_can"=>"Poder controlar o que será entregue", "i_want_to"=>"Criar o Backlog do Projeto"}, "action"=>"create", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Create (0.6ms)[0m   [0;1mINSERT INTO "stories" ("created_at", "title", "as_a", "so_i_can", "project_id", "updated_at", "i_want_to", "estimate") VALUES('2009-02-17 12:32:27', 'Criar backlog', 'Prodcut Owner', 'Poder controlar o que será entregue', 1, '2009-02-17 12:32:27', 'Criar o Backlog do Projeto', NULL)[0m
+Redirected to /projects/1/stories
+Completed in 46ms (DB: 1) | 302 Found [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 09:32:27) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.5ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (5.8ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 47ms (View: 25, DB: 1) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#edit (for 127.0.0.1 at 2009-02-17 09:32:34) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"edit", "id"=>"1", "controller"=>"stories"}
+  [4;36;1mProject Load (5.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Load (2.8ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 1 AND ("stories".project_id = 1)) [0m
+Rendering template within layouts/application
+Rendering stories/edit
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (6.8ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 65ms (View: 33, DB: 8) | 200 OK [http://localhost/projects/1/stories/1/edit]
+
+
+Processing StoriesController#update (for 127.0.0.1 at 2009-02-17 09:32:37) [PUT]
+  Parameters: {"commit"=>"Update", "project_id"=>"1", "story"=>{"as_a"=>"Prodcut Owner", "title"=>"Criar backlog", "so_i_can"=>"Poder controlar o que será entregue", "i_want_to"=>"Criar o Backlog do Projeto"}, "action"=>"update", "_method"=>"put", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "id"=>"1", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Load (0.5ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1 AND ("stories".project_id = 1)) [0m
+Redirected to /projects/1/stories/1
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/projects/1/stories/1]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-02-17 09:32:37) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"show", "id"=>"1", "controller"=>"stories"}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Load (2.8ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1 AND ("stories".project_id = 1)) [0m
+Rendering template within layouts/application
+Rendering stories/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (6.3ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 54ms (View: 24, DB: 4) | 200 OK [http://localhost/projects/1/stories/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 09:32:41) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.7ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (6.1ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 143ms (View: 116, DB: 1) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-02-17 09:32:52) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"new", "controller"=>"stories"}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/new
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (10.0ms)
+Rendered shared/_tabs (2.6ms)
+Completed in 68ms (View: 37, DB: 1) | 200 OK [http://localhost/projects/1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-02-17 09:34:05) [POST]
+  Parameters: {"commit"=>"Create", "project_id"=>"1", "story"=>{"as_a"=>"Team Member", "title"=>"Estimar uma Estória", "so_i_can"=>"Estimar as estórias que farão parte do sprint", "i_want_to"=>"Estimar em story points uma estória"}, "action"=>"create", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories"}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Create (0.6ms)[0m   [0;1mINSERT INTO "stories" ("created_at", "title", "as_a", "so_i_can", "project_id", "updated_at", "i_want_to", "estimate") VALUES('2009-02-17 12:34:05', 'Estimar uma Estória', 'Team Member', 'Estimar as estórias que farão parte do sprint', 1, '2009-02-17 12:34:05', 'Estimar em story points uma estória', NULL)[0m
+Redirected to /projects/1/stories
+Completed in 86ms (DB: 1) | 302 Found [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 09:34:05) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.7ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (5.7ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 46ms (View: 26, DB: 1) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 09:37:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (6.1ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 40ms (View: 25, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 10:17:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (19.8ms)
+Rendered shared/_tabs (2.9ms)
+Completed in 55ms (View: 51, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:18:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mProject Load (5.8ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (19.2ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 87ms (View: 56, DB: 6) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 10:18:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (11.9ms)
+Rendered shared/_tabs (10.2ms)
+Completed in 67ms (View: 37, DB: 1) | 200 OK [http://localhost/projects/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 10:18:34) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (8.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (2.5ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (7.9ms)
+Rendered shared/_tabs (12.4ms)
+Completed in 89ms (View: 51, DB: 12) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:23:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (0.7ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (16.1ms)
+Rendered shared/_tabs (2.6ms)
+Completed in 67ms (View: 50, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 10:23:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (9.6ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 32ms (View: 28, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:23:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mProject Load (0.9ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '3be0cc7619087045789e41e5165a836ee4b27dbf') LIMIT 1[0m
+Rendered shared/_global_links (7.2ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 48ms (View: 28, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-02-17 10:29:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-17 10:29:10) [POST]
+  Parameters: {"openid_url"=>"", "remember_me"=>"1", "commit"=>"Log in »", "action"=>"create", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;35;1mUser Load (3.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'admin') AND (users.state = 'active') LIMIT 1[0m
+Failed login for 'admin' from 127.0.0.1 at Tue Feb 17 13:29:10 UTC 2009
+Rendering template within layouts/login
+Rendering sessions/new
+Completed in 19ms (View: 11, DB: 4) | 200 OK [http://localhost/session]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (6.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (32.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (8.4ms)[0m   [0mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255), "identifier" varchar(255), "description" text, "field_type" varchar(255) DEFAULT 'string', "value" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (32.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "password_reset_code" varchar(255), "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (32.1ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (31.7ms)[0m   [0;1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "real_name" varchar(255), "location" varchar(255), "website" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.9ms)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.7ms)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (6.8ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mRole Create (2.7ms)[0m   [0mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;36;1mUser Exists (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'admin') LIMIT 1[0m
+  [4;35;1mUser Exists (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'nospam@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "created_at", "crypted_password", "remember_token_expires_at", "password_reset_code", "deleted_at", "updated_at", "activation_code", "remember_token", "login", "identity_url", "email", "state") VALUES('', '4651703bc763a11912c4e12e42ee060fe89547a8', NULL, '2009-02-17 13:30:02', '638a6876297f3962f393e4adc79030dd20c3122d', NULL, NULL, NULL, '2009-02-17 13:30:02', 'c99fcd67101765e6383051da236b4a9199037101', NULL, 'admin', NULL, 'nospam@example.com', 'pending')[0m
+  [4;35;1mProfile Create (0.3ms)[0m   [0mINSERT INTO "profiles" ("real_name", "location", "created_at", "updated_at", "user_id", "website") VALUES(NULL, NULL, '2009-02-17 13:30:02', '2009-02-17 13:30:02', NULL, NULL)[0m
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM "profiles" WHERE ("profiles".user_id = 1) LIMIT 1[0m
+  [4;35;1mProfile Update (0.2ms)[0m   [0mUPDATE "profiles" SET "updated_at" = '2009-02-17 13:30:02', "user_id" = 1 WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 10:30:02 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+An account has been created for you at Scrum on Rails. You login credentials are:
+
+  Username: admin
+  Password: admin
+
+Before you can access your account, we require you to activate it. You can activate your account now by visiting the following url:
+
+  http://http://localhost:3000/activate/c99fcd67101765e6383051da236b4a9199037101
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-02-17 13:30:02', "activated_at" = '2009-02-17 13:30:02', "activation_code" = NULL, "state" = 'active' WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 10:30:02 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello, 
+
+admin, your account has been activated. You may now use your login credentials to access your account at Scrum on Rails.
+
+  http://http://localhost:3000/
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;35;1mSQL (3.8ms)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090213172335')[0m
+Migrating to CreateProjects (20090216181729)
+  [4;35;1mSQL (30.9ms)[0m   [0mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181729')[0m
+Migrating to CreateProjectUsers (20090216181916)
+  [4;35;1mSQL (18.8ms)[0m   [0mCREATE TABLE "project_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "user_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181916')[0m
+Migrating to CreateStories (20090216201439)
+  [4;35;1mSQL (19.0ms)[0m   [0mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (7.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216201439')[0m
+  [4;35;1mSQL (4.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mPRAGMA index_list("profiles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("project_users")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_list("projects")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("settings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-17 10:31:21) [POST]
+  Parameters: {"openid_url"=>"", "remember_me"=>"1", "commit"=>"Log in »", "action"=>"create", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Load (6.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'admin') AND (users.state = 'active') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-02-17 13:31:21', "remember_token" = '9770e34250b8abe11cda263d3648f444fe4ee548', "remember_token_expires_at" = '2009-03-03 13:31:21' WHERE "id" = 1[0m
+Cookie set: auth_token=9770e34250b8abe11cda263d3648f444fe4ee548; path=/; expires=Tue, 03 Mar 2009 13:31:21 GMT
+Redirected to /
+Completed in 204ms (DB: 7) | 302 Found [http://localhost/session]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 10:31:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (2.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (27.7ms)
+Rendered shared/_tabs (5.7ms)
+Completed in 70ms (View: 65, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 10:31:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Project with ID=1):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1528:in `find_one'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1511:in `find_from_ids'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:590:in `find'
+    /app/controllers/projects_controller.rb:16:in `show'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (68.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.8ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (10.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (18.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.6ms)[0m   [0mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255), "identifier" varchar(255), "description" text, "field_type" varchar(255) DEFAULT 'string', "value" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (20.8ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "password_reset_code" varchar(255), "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (59.0ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "real_name" varchar(255), "location" varchar(255), "website" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (9.1ms)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (19.1ms)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (18.3ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (25.5ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mRole Create (0.4ms)[0m   [0mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'admin') LIMIT 1[0m
+  [4;35;1mUser Exists (1.7ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'nospam@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.7ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "created_at", "crypted_password", "remember_token_expires_at", "password_reset_code", "deleted_at", "updated_at", "activation_code", "remember_token", "login", "identity_url", "email", "state") VALUES('', 'b2b08bed75d282d77bf5144cfe3a4ee5058ec480', NULL, '2009-02-17 13:33:26', '9475e14f88089e96bcb665b710a6f6f046ef2766', NULL, NULL, NULL, '2009-02-17 13:33:26', 'ae2f42b9ac5351fbb21be9e0636515a6788d66fe', NULL, 'admin', NULL, 'nospam@example.com', 'pending')[0m
+  [4;35;1mProfile Create (0.3ms)[0m   [0mINSERT INTO "profiles" ("real_name", "location", "created_at", "updated_at", "user_id", "website") VALUES(NULL, NULL, '2009-02-17 13:33:26', '2009-02-17 13:33:26', NULL, NULL)[0m
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM "profiles" WHERE ("profiles".user_id = 1) LIMIT 1[0m
+  [4;35;1mProfile Update (0.2ms)[0m   [0mUPDATE "profiles" SET "updated_at" = '2009-02-17 13:33:26', "user_id" = 1 WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 10:33:26 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+An account has been created for you at Scrum on Rails. You login credentials are:
+
+  Username: admin
+  Password: admin
+
+Before you can access your account, we require you to activate it. You can activate your account now by visiting the following url:
+
+  http://http://localhost:3000/activate/ae2f42b9ac5351fbb21be9e0636515a6788d66fe
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-02-17 13:33:26', "activated_at" = '2009-02-17 13:33:26', "activation_code" = NULL, "state" = 'active' WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 10:33:26 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello, 
+
+admin, your account has been activated. You may now use your login credentials to access your account at Scrum on Rails.
+
+  http://http://localhost:3000/
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090213172335')[0m
+Migrating to CreateProjects (20090216181729)
+  [4;35;1mSQL (6.4ms)[0m   [0mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (20.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181729')[0m
+Migrating to CreateProjectUsers (20090216181916)
+  [4;35;1mSQL (10.9ms)[0m   [0mCREATE TABLE "project_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "user_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181916')[0m
+Migrating to CreateStories (20090216201439)
+  [4;35;1mSQL (22.6ms)[0m   [0mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (6.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216201439')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (4.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("profiles")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("project_users")[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mPRAGMA index_list("projects")[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("settings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-02-17 10:35:47) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"projects"}
+  [4;36;1mProject Load (2.7ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Project with ID=1):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1528:in `find_one'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1511:in `find_from_ids'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:590:in `find'
+    /app/controllers/projects_controller.rb:16:in `show'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (79.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.3ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:37:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (31.6ms)
+Rendered shared/_tabs (10.6ms)
+Completed in 111ms (View: 89, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:37:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (5.9ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (29.7ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 67ms (View: 44, DB: 9) | 200 OK [http://localhost/projects]
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (8.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (6.5ms)[0m   [0mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255), "identifier" varchar(255), "description" text, "field_type" varchar(255) DEFAULT 'string', "value" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "identity_url" varchar(255), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(40), "activation_code" varchar(40), "state" varchar(255) DEFAULT 'passive', "remember_token_expires_at" datetime, "password_reset_code" varchar(255), "activated_at" datetime, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (32.0ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "real_name" varchar(255), "location" varchar(255), "website" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.3ms)[0m   [0;1mCREATE TABLE "open_id_authentication_associations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issued" integer, "lifetime" integer, "handle" varchar(255), "assoc_type" varchar(255), "server_url" blob, "secret" blob) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.4ms)[0m   [0;1mCREATE TABLE "open_id_authentication_nonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "timestamp" integer NOT NULL, "server_url" varchar(255), "salt" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.1ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (30.9ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mRole Create (0.4ms)[0m   [0mINSERT INTO "roles" ("name") VALUES('admin')[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'admin') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'nospam@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (3.5ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "activated_at", "created_at", "crypted_password", "remember_token_expires_at", "password_reset_code", "deleted_at", "updated_at", "activation_code", "remember_token", "login", "identity_url", "email", "state") VALUES('', '8797035be373ec05a69300d17ca373eab6bb7674', NULL, '2009-02-17 13:39:29', 'b3a128f64ad35040bb99eefafb9660a1b71c9fbe', NULL, NULL, NULL, '2009-02-17 13:39:29', 'ec3b28551ca4fb0fe29aaa0bd77e50a1b1776a3c', NULL, 'admin', NULL, 'nospam@example.com', 'pending')[0m
+  [4;35;1mProfile Create (0.0ms)[0m   [0mINSERT INTO "profiles" ("real_name", "location", "created_at", "updated_at", "user_id", "website") VALUES(NULL, NULL, '2009-02-17 13:39:29', '2009-02-17 13:39:29', NULL, NULL)[0m
+  [4;36;1mProfile Load (0.4ms)[0m   [0;1mSELECT * FROM "profiles" WHERE ("profiles".user_id = 1) LIMIT 1[0m
+  [4;35;1mProfile Update (0.1ms)[0m   [0mUPDATE "profiles" SET "updated_at" = '2009-02-17 13:39:29', "user_id" = 1 WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 10:39:29 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+An account has been created for you at Scrum on Rails. You login credentials are:
+
+  Username: admin
+  Password: admin
+
+Before you can access your account, we require you to activate it. You can activate your account now by visiting the following url:
+
+  http://http://localhost:3000/activate/ec3b28551ca4fb0fe29aaa0bd77e50a1b1776a3c
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-02-17 13:39:29', "activated_at" = '2009-02-17 13:39:29', "activation_code" = NULL, "state" = 'active' WHERE "id" = 1[0m
+Sent mail to nospam@example.com
+
+Date: Tue, 17 Feb 2009 10:39:29 -0300
+From: Support <felipecvo@gmail.com>
+To: nospam@example.com
+Subject: [Scrum on Rails] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello, 
+
+admin, your account has been activated. You may now use your login credentials to access your account at Scrum on Rails.
+
+  http://http://localhost:3000/
+
+Best regards, 
+
+The Scrum on Rails Team.
+  [4;35;1mSQL (2.5ms)[0m   [0mINSERT INTO "roles_users" ("role_id", "user_id") VALUES (1, 1)[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090213172335')[0m
+Migrating to CreateProjects (20090216181729)
+  [4;35;1mSQL (31.6ms)[0m   [0mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181729')[0m
+Migrating to CreateProjectUsers (20090216181916)
+  [4;35;1mSQL (33.2ms)[0m   [0mCREATE TABLE "project_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "user_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216181916')[0m
+Migrating to CreateStories (20090216201439)
+  [4;35;1mSQL (12.7ms)[0m   [0mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (6.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216201439')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mPRAGMA index_list("profiles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("project_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("projects")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("settings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:40:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (1.3ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (29.2ms)
+Rendered shared/_tabs (5.4ms)
+Completed in 186ms (View: 69, DB: 3) | 200 OK [http://localhost/projects]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 10:40:47) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.8ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (27.7ms)
+Rendered shared/_tabs (3.7ms)
+Completed in 79ms (View: 52, DB: 1) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:41:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mProject Load (1.1ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (44.2ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 108ms (View: 80, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 10:41:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (6.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (1.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (29.3ms)
+Rendered shared/_tabs (3.1ms)
+Completed in 53ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:41:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (1.1ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (29.0ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 76ms (View: 51, DB: 4) | 200 OK [http://localhost/projects]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 10:41:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (31.1ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 51ms (View: 46, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 10:41:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (46.3ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 130ms (View: 86, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectUsersController#index (for 127.0.0.1 at 2009-02-17 10:41:43) [GET]
+  Parameters: {"pid"=>"1", "action"=>"index", "controller"=>"project_users"}
+  [4;36;1mProject Load (0.7ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = '1') LIMIT 1[0m
+  [4;35;1mProjectUser Load (0.7ms)[0m   [0mSELECT * FROM "project_users" WHERE (project_id = '1') [0m
+Rendering template within layouts/application
+Rendering project_users/index
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (16.1ms)
+Rendered shared/_tabs (2.9ms)
+Completed in 96ms (View: 57, DB: 4) | 200 OK [http://localhost/project_users?pid=1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-17 10:48:56) [GET]
+
+
+ActionController::RoutingError (No route matches "/admin/upload_manager" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2009-02-17 11:28:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"dashboard"}
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (29.5ms)
+Rendered shared/_tabs (6.2ms)
+Completed in 65ms (View: 57, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-02-17 11:28:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"projects"}
+  [4;36;1mProject Load (1.3ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (31.0ms)
+Rendered shared/_tabs (8.4ms)
+Completed in 79ms (View: 57, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 11:28:33) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.8ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (30.7ms)
+Rendered shared/_tabs (2.3ms)
+Completed in 80ms (View: 56, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+Migrating to CreateProjects (20090216181729)
+Migrating to CreateProjectUsers (20090216181916)
+Migrating to CreateStories (20090216201439)
+Migrating to AddPriorityToStories (20090217144300)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (6.6ms)[0m   [0mALTER TABLE "stories" ADD "position" integer[0m
+  [4;36;1mSQL (40.0ms)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217144300')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (7.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("profiles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("project_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("projects")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles_users")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mPRAGMA index_list("settings")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("stories")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+Migrating to CreateProjects (20090216181729)
+Migrating to CreateProjectUsers (20090216181916)
+Migrating to CreateStories (20090216201439)
+Migrating to AddPriorityToStories (20090217144300)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("profiles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("project_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("projects")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("settings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddPriorityToStories (20090217144300)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TEMPORARY TABLE "altered_stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime, "position" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mDROP TABLE "stories"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "as_a" varchar(255), "i_want_to" text, "so_i_can" text, "estimate" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime, "position" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("altered_stories")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP TABLE "altered_stories"[0m
+  [4;35;1mSQL (15.2ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090217144300'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("open_id_authentication_associations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("open_id_authentication_nonces")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("profiles")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("project_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("projects")[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("settings")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("stories")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthentication (20090213172335)
+Migrating to CreateProjects (20090216181729)
+Migrating to CreateProjectUsers (20090216181916)
+Migrating to CreateStories (20090216201439)
+Migrating to AddPriorityToStories (20090217144300)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: duplicate column name: position: ALTER TABLE "stories" ADD "position" integer[0m
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:17:33) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+ERROR: compiling _run_erb_app47views47stories47index46html46erb RAISED compile error
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:5: syntax error, unexpected ')'
+...oncat(( style_include_tag do ).to_s); @output_buffer.concat ...
+                              ^
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:37: syntax error, unexpected kENSURE, expecting ')'
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:39: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47stories47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  content_for :header do 
+@output_buffer.concat "\tListing stories\n"
+;  end 
+@output_buffer.concat "\n"
+; @output_buffer.concat(( style_include_tag do ).to_s); @output_buffer.concat "\n\nli .handle {\n  font-size: 12px;\n  cursor: move;\n  color: #777;\n}\n"
+
+
+
+
+
+
+;  end ; @output_buffer.concat "\n\n\n\n<ul id=\"stories\">\n"
+
+
+
+
+;  for story in @stories  ; @output_buffer.concat "\n  "
+;  content_tag_for :li, faq do ; @output_buffer.concat "\n    <span class=\"handle\">[drag]</span>\n    <h3>"
+
+; @output_buffer.concat(( link_to( h(story.title), edit_project_story_path(@project, story)) ).to_s); @output_buffer.concat "</h3>\n    <p><strong>As a: </strong>"
+; @output_buffer.concat((h story.as_a ).to_s); @output_buffer.concat "</p>\n    <p><strong>I want to: </strong>"
+; @output_buffer.concat((h story.i_want_to ).to_s); @output_buffer.concat "</p>\n    <p><strong>So I can: </strong>"
+; @output_buffer.concat((h story.so_i_can ).to_s); @output_buffer.concat "</td>\n    &nbsp;\n    "
+
+; @output_buffer.concat(( link_to 'Destroy', project_story_path(@project, story), :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "\n    "
+; @output_buffer.concat(( link_to h(faq.question), faq ).to_s); @output_buffer.concat "\n  "
+;  end ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n</ul>\n"
+
+; @output_buffer.concat(( sortable_element("stories", :url => sort_faqs_path, :handle => "handle") ).to_s); @output_buffer.concat "\n\n\n<br /><br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to 'New story', new_project_story_path(@project) ).to_s); @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:39:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:66:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/dkonishi/Projects/scrum-on-rails/app/controllers/stories_controller.rb:28:in `index'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+
+
+ActionView::TemplateError (compile error
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:5: syntax error, unexpected ')'
+...oncat(( style_include_tag do ).to_s); @output_buffer.concat ...
+                              ^
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:37: syntax error, unexpected kENSURE, expecting ')'
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:39: syntax error, unexpected kEND, expecting ')') on line #5 of app/views/stories/index.html.erb:
+2: 	Listing stories
+3: <% end -%>
+4: 
+5: <%= style_include_tag do %>
+6: 
+7: li .handle {
+8:   font-size: 12px;
+
+    app/views/stories/index.html.erb:39:in `compile!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:66:in `compile'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `compile'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:26:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/stories_controller.rb:28:in `index'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (79.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.6ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:19:19) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (1.1ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+
+
+ActionView::TemplateError (undefined local variable or method `faq' for #<ActionView::Base:0xb6a0a15c>) on line #17 of app/views/stories/index.html.erb:
+14: 
+15: <ul id="stories">
+16: <% for story in @stories  %>
+17:   <% content_tag_for :li, faq do %>
+18:     <span class="handle">[drag]</span>
+19:     <h3><%= link_to( h(story.title), edit_project_story_path(@project, story)) %></h3>
+20:     <p><strong>As a: </strong><%=h story.as_a %></p>
+
+    app/views/stories/index.html.erb:17
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_collection.rb:359:in `method_missing_without_paginate'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_proxy.rb:212:in `method_missing'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_proxy.rb:212:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_proxy.rb:212:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_proxy.rb:212:in `method_missing'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/associations/association_collection.rb:359:in `method_missing_without_paginate'
+    vendor/plugins/will_paginate/lib/will_paginate/finder.rb:82:in `method_missing'
+    app/views/stories/index.html.erb:16
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/stories_controller.rb:28:in `index'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (158.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.5ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:20:15) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.9ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.7ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (23.5ms)
+Rendered shared/_tabs (6.0ms)
+Completed in 87ms (View: 59, DB: 3) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:20:20) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+
+NameError (uninitialized constant StoriesController::Faq):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:102:in `const_missing'
+    /app/controllers/stories_controller.rb:8:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1907:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `each'
+    /app/controllers/stories_controller.rb:7:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (71.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.2ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:20:31) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+
+NameError (uninitialized constant StoriesController::Faq):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:102:in `const_missing'
+    /app/controllers/stories_controller.rb:8:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1907:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `each'
+    /app/controllers/stories_controller.rb:7:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (71.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.3ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:20:35) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+
+NameError (uninitialized constant StoriesController::Faq):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:102:in `const_missing'
+    /app/controllers/stories_controller.rb:8:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1907:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `each'
+    /app/controllers/stories_controller.rb:7:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (187.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (4.3ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:20:36) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.9ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (3.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (23.7ms)
+Rendered shared/_tabs (2.3ms)
+Completed in 83ms (View: 53, DB: 6) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:20:40) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+
+NameError (uninitialized constant StoriesController::Faq):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:102:in `const_missing'
+    /app/controllers/stories_controller.rb:8:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1907:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `each'
+    /app/controllers/stories_controller.rb:7:in `each_with_index'
+    /app/controllers/stories_controller.rb:7:in `sort'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (70.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.2ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:21:40) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (1.4ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.6ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 82ms (View: 51, DB: 3) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:21:43) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (15.2ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (4.7ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 51ms (View: 0, DB: 20) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:21:46) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (24.4ms)
+Rendered shared/_tabs (2.4ms)
+Completed in 76ms (View: 52, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:02) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (6.8ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (5.8ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 49ms (View: 0, DB: 13) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:22:09) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.9ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (28.4ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 81ms (View: 54, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:13) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (7.8ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (6.4ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 35ms (View: 0, DB: 15) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:14) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (9.6ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (28.2ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 92ms (View: 0, DB: 38) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:22:16) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.9ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (4.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (23.7ms)
+Rendered shared/_tabs (2.2ms)
+Completed in 76ms (View: 47, DB: 6) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:20) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (1.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (21.4ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (4.2ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 49ms (View: 0, DB: 27) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:22:21) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.9ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.9ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (21.0ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 77ms (View: 48, DB: 3) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:25) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (5.3ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (3.9ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 30ms (View: 0, DB: 10) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:27) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (7.3ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (13.6ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 199ms (View: 0, DB: 21) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:49) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (5.7ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (9.5ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 57ms (View: 0, DB: 16) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:22:51) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (1.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (7.5ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (24.5ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 63ms (View: 0, DB: 33) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:23:12) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (11.7ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (5.4ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 66ms (View: 0, DB: 18) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:23:25) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.8ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (6.0ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (30.4ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 59ms (View: 0, DB: 37) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-02-17 13:23:28) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"new", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/new
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (24.3ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 77ms (View: 46, DB: 1) | 200 OK [http://localhost/projects/1/stories/new]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:26:17) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (8.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (3.6ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (35.6ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 108ms (View: 59, DB: 13) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:26:24) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (9.6ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;35;1mStory Update (6.2ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 44ms (View: 0, DB: 16) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:27:25) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.9ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.0ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 73ms (View: 45, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#edit (for 127.0.0.1 at 2009-02-17 13:27:29) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"edit", "id"=>"953125641", "controller"=>"stories"}
+  [4;36;1mProject Load (20.1ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Load (1.8ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 953125641 AND ("stories".project_id = 1)) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering stories/edit
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (29.3ms)
+Rendered shared/_tabs (2.8ms)
+Completed in 107ms (View: 56, DB: 22) | 200 OK [http://localhost/projects/1/stories/953125641/edit]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:28:36) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+ERROR: compiling _run_erb_app47views47stories47index46html46erb RAISED compile error
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:18: syntax error, unexpected ')', expecting kEND
+...path(@project, story)) ).to_s); @output_buffer.concat "</h3>...
+                              ^
+Function body:           def _run_erb_app47views47stories47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  content_for :header do 
+@output_buffer.concat "\tListing stories\n"
+;  end 
+@output_buffer.concat "\n<style>\n  li .handle {\n    font-size: 12px;\n    cursor: move;\n    color: #777;\n  }\n</style>\n\n\n\n<ul id=\"stories\">\n"
+
+
+
+
+
+
+
+
+
+
+
+;  for story in @stories  ; @output_buffer.concat "\n  "
+;  content_tag_for :li, story do ; @output_buffer.concat "\n    <h3><span class=\"handle\">"
+; @output_buffer.concat(( h story.title ).to_s); @output_buffer.concat "</span>"; @output_buffer.concat(( link_to  "ver", edit_project_story_path(@project, story)) ).to_s); @output_buffer.concat "</h3>\n    <p><strong>As a: </strong>"
+; @output_buffer.concat((h story.as_a ).to_s); @output_buffer.concat "</p>\n    <p><strong>I want to: </strong>"
+; @output_buffer.concat((h story.i_want_to ).to_s); @output_buffer.concat "</p>\n    <p><strong>So I can: </strong>"
+; @output_buffer.concat((h story.so_i_can ).to_s); @output_buffer.concat "</td>\n    &nbsp;\n    "
+
+; @output_buffer.concat(( link_to 'Destroy', project_story_path(@project, story), :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "\n  "
+;  end ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n</ul>\n"
+
+; @output_buffer.concat(( sortable_element("stories", :url => sort_project_stories_path, :handle => "handle") ).to_s); @output_buffer.concat "\n\n\n<br /><br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to 'New story', new_project_story_path(@project) ).to_s); @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:36:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:66:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/dkonishi/Projects/scrum-on-rails/app/controllers/stories_controller.rb:19:in `index'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+/usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+
+
+ActionView::TemplateError (compile error
+/home/dkonishi/Projects/scrum-on-rails/app/views/stories/index.html.erb:18: syntax error, unexpected ')', expecting kEND
+...path(@project, story)) ).to_s); @output_buffer.concat "</h3>...
+                              ^) on line #18 of app/views/stories/index.html.erb:
+15: <ul id="stories">
+16: <% for story in @stories  %>
+17:   <% content_tag_for :li, story do %>
+18:     <h3><span class="handle"><%= h story.title %></span><%= link_to  "ver", edit_project_story_path(@project, story)) %></h3>
+19:     <p><strong>As a: </strong><%=h story.as_a %></p>
+20:     <p><strong>I want to: </strong><%=h story.i_want_to %></p>
+21:     <p><strong>So I can: </strong><%=h story.so_i_can %></td>
+
+    app/views/stories/index.html.erb:36:in `compile!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:66:in `compile'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:64:in `compile'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:26:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:164:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:158:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/stories_controller.rb:19:in `index'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (78.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.2ms)
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:28:55) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.8ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (4.7ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (27.6ms)
+Rendered shared/_tabs (2.2ms)
+Completed in 91ms (View: 51, DB: 7) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:29:23) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (0.9ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.1ms)
+Rendered shared/_tabs (2.2ms)
+Completed in 94ms (View: 60, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:29:30) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (6.6ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (32.5ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 64ms (View: 0, DB: 40) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:29:40) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.9ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (26.6ms)
+Rendered shared/_tabs (2.5ms)
+Completed in 237ms (View: 59, DB: 2) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:29:54) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (5.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (0.8ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (24.3ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 117ms (View: 63, DB: 7) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:30:07) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (3.7ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (34.9ms)
+Rendered shared/_tabs (4.5ms)
+Completed in 121ms (View: 70, DB: 5) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:30:15) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (7.2ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (24.1ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 190ms (View: 0, DB: 32) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:30:20) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (10.0ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (21.0ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 79ms (View: 0, DB: 31) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:30:23) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (34.5ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (22.5ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 88ms (View: 0, DB: 57) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:30:49) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;36;1mStory Load (1.5ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (21.4ms)
+Rendered shared/_tabs (2.1ms)
+Completed in 81ms (View: 53, DB: 4) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:31:01) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (6.8ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (3.3ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 36ms (View: 0, DB: 11) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:31:03) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["953125641", "996332877"]}
+  [4;36;1mProject Load (2.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (6.0ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='953125641') [0m
+  [4;36;1mStory Update (3.2ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+Completed in 41ms (View: 0, DB: 11) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:31:29) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332877", "953125641"]}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Update (6.2ms)[0m   [0;1mUPDATE "stories" SET position=1 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (6.6ms)[0m   [0mUPDATE "stories" SET position=2 WHERE (id='953125641') [0m
+Completed in 41ms (View: 0, DB: 13) | 200 OK [http://localhost/projects/1/stories/sort]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-02-17 13:31:34) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"new", "controller"=>"stories"}
+  [4;36;1mProject Load (2.5ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.7ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (25.7ms)
+Rendered shared/_tabs (2.0ms)
+Completed in 82ms (View: 43, DB: 4) | 200 OK [http://localhost/projects/1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-02-17 13:32:05) [POST]
+  Parameters: {"commit"=>"Create", "project_id"=>"1", "story"=>{"as_a"=>"Desenvolvedor ", "title"=>"Explicar para o Alex", "so_i_can"=>"Ele poder trabalhar no projeto", "i_want_to"=>"Explicar para o Alex"}, "action"=>"create", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories"}
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mStory Load (0.8ms)[0m   [0;1mSELECT * FROM "stories" WHERE (1 = 1) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mStory Create (0.6ms)[0m   [0mINSERT INTO "stories" ("position", "created_at", "title", "as_a", "so_i_can", "project_id", "updated_at", "i_want_to", "estimate") VALUES(3, '2009-02-17 16:32:05', 'Explicar para o Alex', 'Desenvolvedor ', 'Ele poder trabalhar no projeto', 1, '2009-02-17 16:32:05', 'Explicar para o Alex', NULL)[0m
+Redirected to /projects/1/stories
+Completed in 73ms (DB: 2) | 302 Found [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-02-17 13:32:05) [GET]
+  Parameters: {"project_id"=>"1", "action"=>"index", "controller"=>"stories"}
+  [4;36;1mProject Load (0.7ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stories/index
+  [4;35;1mStory Load (1.2ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories".project_id = 1) ORDER BY position[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+Rendered shared/_global_links (24.1ms)
+Rendered shared/_tabs (1.9ms)
+Completed in 82ms (View: 55, DB: 3) | 200 OK [http://localhost/projects/1/stories]
+
+
+Processing StoriesController#sort (for 127.0.0.1 at 2009-02-17 13:32:10) [POST]
+  Parameters: {"project_id"=>"1", "action"=>"sort", "authenticity_token"=>"69cf05b59517aa6e929c3d9e21cd2c84bb5ed83b", "controller"=>"stories", "stories"=>["996332878", "996332877", "953125641"]}
+  [4;36;1mProject Load (7.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mStory Update (9.2ms)[0m   [0mUPDATE "stories" SET position=1 WHERE (id='996332878') [0m
+  [4;36;1mStory Update (27.8ms)[0m   [0;1mUPDATE "stories" SET position=2 WHERE (id='996332877') [0m
+  [4;35;1mStory Update (31.4ms)[0m   [0mUPDATE "stories" SET position=3 WHERE (id='953125641') [0m
+Completed in 115ms (View: 0, DB: 76) | 200 OK [http://localhost/projects/1/stories/sort]

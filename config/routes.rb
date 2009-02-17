@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect 'list_users/:pid',  :controller => 'project_users', :action => 'index'
 
   map.resources :projects do |projects|
-    projects.resources :stories
+    projects.resources :stories, :member => { :estimate => :post }, :collection => { :current_sprint => :get, :sort => :post }
   end
 
   # RESTful rewrites

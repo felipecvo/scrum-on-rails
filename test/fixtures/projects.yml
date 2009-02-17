@@ -1,9 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  uri: MyString
+  id: 1
+  name: Scrum On Rails
+  uri: scrumonrails
 
-two:
-  name: MyString
-  uri: MyString
+#two:
+#  name: MyString
+#  uri: MyString
