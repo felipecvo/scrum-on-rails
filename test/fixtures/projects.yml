@@ -6,6 +6,6 @@ one:
   uri: scrumonrails
 
 two:
-  id: 2 
-  name2: Projeto 2
+  id: 2
+  name: Projeto 2
   uri: http://projeto2.scrumonrails.com
