@@ -36,6 +36,7 @@ class ProjectUsersController < ApplicationController
     @users = User.find(:all)
     @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
 
+
 		for user in @users
 			is_checked = params["user_id#{user.id}"]
 			if is_checked
@@ -43,8 +44,12 @@ class ProjectUsersController < ApplicationController
 					project_user = ProjectUser.new
 					project_user.project_id = @project.id
 					project_user.user_id = user.id
-					project_user.user_type = params["user_type#{user.id}"]
+					project_user.user_type = params["user_type"][user.id.to_s]
 					@project.project_users << project_user
+				else
+					project_user = get_project_user_by_user(@project_users, user)
+					project_user.user_type = params["user_type"][user.id.to_s]
+					project_user.save!
 				end
 			else
 				project_user = ProjectUser.find(user.id)
@@ -55,8 +60,10 @@ class ProjectUsersController < ApplicationController
 			end
 		end
 
+
+
     respond_to do |format|
-			flash[:notice] = 'ProjectUsers was successfully created.'
+			#flash[:notice] = 'ProjectUsers was successfully created.'
       format.html { redirect_to :controller => "projects", :id => @project.id }
     end
   end
