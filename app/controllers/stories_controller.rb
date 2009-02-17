@@ -8,7 +8,7 @@ class StoriesController < ApplicationController
     render :nothing => true
   end
 
-  before_filter :require_authentication, :load_project
+  before_filter :require_authentication
 
   # GET /projects/1/stories
   # GET /projects/1/stories.xml

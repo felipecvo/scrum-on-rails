@@ -1,3 +1,7 @@
+<% content_for :header do -%>
+	Show sprint
+<% end -%>
+
 <p>
   <b>Goal:</b>
   <%=h @sprint.goal %>
@@ -13,11 +17,7 @@
   <%=h @sprint.end_date %>
 </p>
 
-<p>
-  <b>References:</b>
-  <%=h @sprint.references %>
-</p>
 
 
-<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
-<%= link_to 'Back', sprints_path %>
+<%= link_to 'Edit', edit_project_sprint_path(@project, @sprint) %> |
+<%= link_to 'Back', project_sprints_path(@project) %>
