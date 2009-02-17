@@ -1,6 +1,6 @@
 loggit
-db/development.sqlite3
-db/schema.rb
-log
-tmp
+/db/development.sqlite3
+/db/schema.rb
+/log
+/tmp
 *~
