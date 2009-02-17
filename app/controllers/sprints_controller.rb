@@ -40,6 +40,16 @@ class SprintsController < ApplicationController
     @sprint = Sprint.find(params[:id])
   end
 
+  def list_stories
+    @sprint = Sprint.find(params[:id])
+    @all_stories = Story.find(:all, :conditions => ["project_id = ?", @project.id])
+
+    respond_to do |format|
+      format.html { render :action => "list_stories" }
+      format.xml  { render :xml => @sprint.stories }
+    end
+  end
+
   # POST /project/1/sprints
   # POST /project/1/sprints.xml
   def create
@@ -83,6 +93,22 @@ class SprintsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(sprints_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def save_stories
+    @sprint = Sprint.find(params[:id])
+    @sprint.stories = Story.find(params[:story_ids]) if params[:story_ids]
+
+    respond_to do |format|
+      if @sprint.save
+        flash[:notice] = 'Sprint was successfully created.'
+        format.html { redirect_to(@sprint) }
+        format.xml  { render :xml => @sprint, :status => :created, :location => @sprint }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @sprint.errors, :status => :unprocessable_entity }
+      end
     end
   end
 end

@@ -1,5 +1,0 @@
-module WikisHelper
-	def write_redCloth(body)
-		r = RedCloth.new body
-	end
-end
