@@ -4,7 +4,7 @@ class CreateSprints < ActiveRecord::Migration
       t.text :goal
       t.date :start_date
       t.date :end_date
-      t.project :references
+      t.references :project
 
       t.timestamps
     end

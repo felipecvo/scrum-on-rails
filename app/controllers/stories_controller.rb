@@ -1,8 +1,6 @@
 class StoriesController < ApplicationController
   include ProjectDependent
 
-  before_filter :load_project
-
   def sort
     params[:stories].each_with_index do |id, index|
       Story.update_all(['position=?', index+1], ['id=?', id])
