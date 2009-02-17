@@ -1,0 +1,25 @@
+<% content_for :header do -%>
+  Edição do Wiki
+<% end -%>
+
+
+<% form_for(@wiki) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field(:project_id, :project_id) %>
+
+
+  <p>
+    <%= f.label :title, "Título" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body, "Texto" %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Atualizar" %>
+  </p>
+<% end %>
+
+<%= link_to 'exibir', @wiki %> |
+<%= link_to 'voltar', :controller => "wikis", :action => "index", :pid => @project.id %>

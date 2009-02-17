@@ -1,0 +1,19 @@
+<% content_for :header do -%>
+ Lista de páginas do Projeto <%= @project.name %>
+<% end -%>
+
+<ul>
+<% for wiki in @wikis %>
+  <li>
+      <h3><%= h wiki.title %></h3>
+      <ul>
+        <li><%= link_to 'exibir', wiki %> | <%= link_to 'editar', edit_wiki_path(wiki) %> | <%= link_to 'excluir', wiki, :confirm => 'Confirma?', :method => :delete %></li>
+      </ul>
+  </li>
+<% end %>
+</ul>
+
+<br />
+
+<p><%= link_to 'nova página', :controller => "wikis", :action => "new", :pid => @project.id %></p>
+<p><%= link_to 'voltar', :controller => "projects", :action => "show", :id => @project.id %></p>
