@@ -1,3 +1,6 @@
 loggit
+db/*.sqlite3
+db/schema.rb
+log
 tmp
-*~
+
