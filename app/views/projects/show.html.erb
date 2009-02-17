@@ -16,20 +16,20 @@
 	<h2>Usuários</h2>
 	<ul>
 	<% for project_user in @project.project_users %>
-		<li><%=h project_user.user.login %> - <%=h project_user.user_type %> | <%= link_to 'remover', project_user, :confirm => 'Confirma?', :method => :delete %></li>
+		<li><%=h project_user.user.login %> - <%=h project_user.user_type %> | <%= link_to 'remover', project_project_user_path(@project), :confirm => 'Confirma?', :method => :delete %></li>
 	<%end%>
 	</ul>
-	<p><%= link_to 'gerenciar usuários', :controller => "project_users", :action => "edit", :id => @project.id %></p>
+	<p><%= link_to 'gerenciar usuários', :controller => "project_users", :action => "edit", :project_id => @project %></p>
 </div>
 
 <div>
 	<h2>Wiki</h2>
 	<ul>
 	<% for wiki in @project.wikis %>
-		<li><%= h wiki.title %> - <%= link_to 'exibir', wiki %> | <%= link_to 'editar', edit_wiki_path(wiki) %> | <%= link_to 'excluir', wiki, :confirm => 'Confirma?', :method => :delete %></li>
+		<li><%= h wiki.title %> - <%= link_to 'exibir', project_wiki_path(@project) %> | <%= link_to 'editar', edit_project_wiki_path(@project, wiki) %> | <%= link_to 'excluir', project_wiki_path(@project), :confirm => 'Confirma?', :method => :delete %></li>
 	<%end%>
 	</ul>
-	<p><%= link_to 'nova página', :controller => "wikis", :action => "new", :pid => @project.id %></p>
+	<p><%= link_to 'nova página', :controller => "wikis", :action => "new", :project_id => @project %></p>
 </div>
 
 <div>

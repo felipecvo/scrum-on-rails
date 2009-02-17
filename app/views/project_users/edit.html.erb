@@ -15,12 +15,13 @@
 
 	<% for user in @users %>
 		<% project_user = get_project_user_by_user(@project_users, user) %>
+		<% selected_type = project_user.nil? ? "PO" : project_user.user_type %>
 		<tr>
 		  <td>
-				<input type="checkbox" value="" id="user_id<%=user.id%>" name="user_id<%=user.id%>" <%= "checked" unless project_user.nil? %> />
+				<input type="checkbox" value="<%=user.id%>" id="user_id<%=user.id%>" name="user_id<%=user.id%>" <%= "checked" unless project_user.nil? %> />
 		  <td><%=h user.login %></td>
 		  <td>
-				<input type="text" id="user_type<%=user.id%>" name="user_type<%=user.id%>" value="<%= project_user.user_type unless project_user.nil? %>" maxlength="2" />
+		  	<%= select( "user_type", user.id, { "Product Owner" => "PO", "Scrum Master" => "SM", "Team Member" => "TM"}, { :selected => selected_type }) %>
 </td>
 		</tr>
 	<% end %>

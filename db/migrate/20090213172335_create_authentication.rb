@@ -66,10 +66,23 @@ class CreateAuthentication < ActiveRecord::Migration
       t.column :user_id, :integer
     end
 
+    # Create admin role and user
+    admin_role = Role.create(:name => 'admin')
+
+    user = User.create do |u|
+      u.login = 'admin'
+      u.password = u.password_confirmation = 'admin'
+      u.email = 'nospam@example.com'
+    end
+
+    user.register!
+    user.activate!
+
+    user.roles << admin_role
   end
 
   def self.down
-    # Drop all
+    # Drop all BaseApp
     drop_table :settings
     drop_table :users
     drop_table :profiles
