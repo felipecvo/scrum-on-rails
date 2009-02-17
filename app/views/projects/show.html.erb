@@ -32,5 +32,15 @@
 	<p><%= link_to 'nova página', :controller => "wikis", :action => "new", :pid => @project.id %></p>
 </div>
 
+<div>
+	<h2>Estórias</h2>
+	<ul>
+	<% for story in @project.stories %>
+		<li><%=h story.title %> </li>
+	<%end%>
+	</ul>
+	<p><%= link_to 'gerenciar estórias', project_stories_path(@project) %></p>
+</div>
+
 <%= link_to 'editar', edit_project_path(@project) %> |
 <%= link_to 'voltar', projects_path %>
