@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-  Edição do Projeto
+  Novo projeto
 <% end -%>
 
 
@@ -15,8 +15,8 @@
     <%= f.text_field :uri %>
   </p>
   <p>
-    <%= f.submit "Atualizar" %>
+    <%= f.submit "criar" %>
   </p>
 <% end %>
 
-<p><%= link_to 'ver', @project %> | <%= link_to 'voltar', projects_path %></p>
+<%= link_to 'voltar', projects_path %>

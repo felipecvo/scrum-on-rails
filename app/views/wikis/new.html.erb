@@ -1,0 +1,23 @@
+<% content_for :header do -%>
+  Nova página do Projeto <% @project.name %>
+<% end -%>
+
+<% form_for(@wiki, :url => {:controller => "wikis", :action => "create", :pid => @project.id}) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field(:project_id) %>
+
+
+  <p>
+    <%= f.label :title, "Título" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body, "Texto" %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Criar" %>
+  </p>
+<% end %>
+
+<%= link_to 'voltar', :controller => "wikis", :action => "index", :pid => @project.id %>

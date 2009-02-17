@@ -1,26 +1,18 @@
-
 <% content_for :header do -%>
   Lista de Projetos
 <% end -%>
 
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Uri</th>
-  </tr>
-
+<ul>
 <% for project in @projects %>
-  <tr>
-    <td><%=h project.name %></td>
-    <td><%=h project.uri %></td>
-    <td><%= link_to 'detalhar', project %></td>
-    <td><%= link_to 'editar', edit_project_path(project) %></td>
-    <td><%= link_to 'usuários', :controller => "project_users", :action => "edit", :pid => project.id %></td>
-  </tr>
+  <li><h3><%=h project.name %></h3>
+    <ul>
+      <li><%=h project.uri %></li>
+      <li><%= link_to 'detalhar', project %> | <%= link_to 'editar', edit_project_path(project) %> | <%= link_to 'usuários', :controller => "project_users", :action => "edit", :id => project.id %> | <%= link_to 'wiki', :controller => "wikis", :action => "index", :pid => project.id %></li>
+    </ul>
+  </li>
 <% end %>
-</table>
+</ul>
 
 <br />
 
-<%= link_to 'novo projeto', new_project_path %>
+<p><%= link_to 'novo projeto', new_project_path %></p>

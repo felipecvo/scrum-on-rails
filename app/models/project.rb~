@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 	has_many :project_users
 	has_many :stories
-	has_many :wikis
+	has_many :wiki
 
 	def current_sprint_stories
 		self.stories
