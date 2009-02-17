@@ -1,5 +1,7 @@
 # See how all your routes lay out with "rake routes"
 ActionController::Routing::Routes.draw do |map|
+  map.resources :sprints
+
   map.resources :wikis
 
   map.resources :project_users

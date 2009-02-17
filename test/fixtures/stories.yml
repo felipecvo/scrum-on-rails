@@ -8,6 +8,13 @@ one:
   project_id: 1
 
 two:
+  title: Criar uma Estória
+  as_a: Product Owner
+  i_want_to: Poder escrever uma estória
+  so_i_can: Momtar o backlog do projeto
+  project_id: 1
+
+three:
   title: Estimar uma Estória
   as_a: Team Member
   i_want_to: Estimar em story points uma estória

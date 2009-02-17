@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  goal: MyText
+  start_date: 2009-02-17
+  end_date: 2009-02-17
+  references: 
+
+two:
+  goal: MyText
+  start_date: 2009-02-17
+  end_date: 2009-02-17
+  references: 

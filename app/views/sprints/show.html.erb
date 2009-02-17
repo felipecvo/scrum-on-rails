@@ -1,0 +1,23 @@
+<p>
+  <b>Goal:</b>
+  <%=h @sprint.goal %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @sprint.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @sprint.end_date %>
+</p>
+
+<p>
+  <b>References:</b>
+  <%=h @sprint.references %>
+</p>
+
+
+<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
+<%= link_to 'Back', sprints_path %>
