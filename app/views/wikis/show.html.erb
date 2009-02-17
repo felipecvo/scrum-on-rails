@@ -14,5 +14,5 @@
 </p>
 
 
-<%= link_to 'editar', edit_wiki_path(@wiki) %> |
-<%= link_to 'voltar', :controller => "wikis", :action => "index", :pid => @project.id %>
+<%= link_to 'editar', edit_project_wiki_path(@project, @wiki) %> |
+<%= link_to 'voltar', project_wikis_path(@project) %>

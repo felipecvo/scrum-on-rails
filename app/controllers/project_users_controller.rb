@@ -1,13 +1,11 @@
 class ProjectUsersController < ApplicationController
-  before_filter :require_authentication
+  include ProjectDependent
+  before_filter :require_authentication, :load_project
 
   # GET /project_users
   # GET /project_users.xml
   def index
-    project_id = params[:pid]
-    @project = Project.find_by_id(project_id)
-    @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", project_id])
-
+    @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @project_users }
@@ -17,13 +15,12 @@ class ProjectUsersController < ApplicationController
 
   # GET /project_users/new
   # GET /project_users/new.xml
-  def edit
-    @project = Project.find_by_id(params[:id])
+  def editing
     @users = User.find(:all)
     @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
 
     respond_to do |format|
-      format.html
+      format.html { render :action => "edit" }
       format.xml  { render :xml => @project_users }
     end
   end
@@ -32,10 +29,8 @@ class ProjectUsersController < ApplicationController
   # POST /project_users
   # POST /project_users.xml
   def create
-  	@project = Project.find_by_id(params[:pid])
     @users = User.find(:all)
     @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
-
 
 		for user in @users
 			is_checked = params["user_id#{user.id}"]
@@ -60,10 +55,8 @@ class ProjectUsersController < ApplicationController
 			end
 		end
 
-
-
     respond_to do |format|
-			#flash[:notice] = 'ProjectUsers was successfully created.'
+			flash[:notice] = 'ProjectUsers was successfully created.'
       format.html { redirect_to :controller => "projects", :id => @project.id }
     end
   end

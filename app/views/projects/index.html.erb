@@ -7,7 +7,7 @@
   <li><h3><%=h project.name %></h3>
     <ul>
       <li><%=h project.uri %></li>
-      <li><%= link_to 'detalhar', project %> | <%= link_to 'editar', edit_project_path(project) %> | <%= link_to 'usuários', :controller => "project_users", :action => "edit", :id => project.id %> | <%= link_to 'wiki', :controller => "wikis", :action => "index", :pid => project.id %></li>
+      <li><%= link_to 'detalhar', project %> | <%= link_to 'editar', edit_project_path(project) %> | <%= link_to 'usuários', project_project_users_path(project) %> | <%= link_to 'wiki', project_wikis_path(project) %></li>
     </ul>
   </li>
 <% end %>

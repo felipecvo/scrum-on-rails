@@ -2,7 +2,8 @@
   Nova página do Projeto <% @project.name %>
 <% end -%>
 
-<% form_for(@wiki, :url => {:controller => "wikis", :action => "create", :pid => @project.id}) do |f| %>
+
+<% form_for([@project, @wiki]) do |f| %>
   <%= f.error_messages %>
   <%= f.hidden_field(:project_id) %>
 
@@ -20,4 +21,5 @@
   </p>
 <% end %>
 
-<%= link_to 'voltar', :controller => "wikis", :action => "index", :pid => @project.id %>
+
+<%= link_to 'voltar', project_wikis_path(@project) %>
