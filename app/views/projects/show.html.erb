@@ -6,12 +6,12 @@
   <b>Nome:</b>
   <%=h @project.name %>
 </p>
-
 <p>
   <b>Url:</b>
   <%=h @project.uri %>
 </p>
-
+<p>
+	<%=link_to "Sprint atual", current_sprint_project_stories_path(@project) %></p>
 <div>
 	<h2>Usuários</h2>
 	<ul>
@@ -41,7 +41,6 @@
 	</ul>
 	<p><%= link_to 'gerenciar estórias', project_stories_path(@project) %></p>
 </div>
-
 <div>
 	<h2>Sprints</h2>
 	<ul style="list-style-type:none">
@@ -53,5 +52,8 @@
 </ul>
 	<p><%= link_to 'gerenciar sprints', project_sprints_path(@project) %></p>
 </div>
+
+<%=link_to "gerenciar sprints", project_sprints_path(@project) %>
+
 <%= link_to 'editar', edit_project_path(@project) %> |
 <%= link_to 'voltar', projects_path %>
