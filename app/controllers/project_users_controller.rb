@@ -1,12 +1,11 @@
 class ProjectUsersController < ApplicationController
+  include ProjectDependent
+  before_filter :require_authentication, :load_project
 
   # GET /project_users
   # GET /project_users.xml
   def index
-    project_id = params[:pid]
-    @project = Project.find_by_id(project_id)
-    @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", project_id])
-
+    @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @project_users }
@@ -16,13 +15,12 @@ class ProjectUsersController < ApplicationController
 
   # GET /project_users/new
   # GET /project_users/new.xml
-  def edit
-    @project = Project.find_by_id(params[:id])
+  def editing
     @users = User.find(:all)
     @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
 
     respond_to do |format|
-      format.html
+      format.html { render :action => "edit" }
       format.xml  { render :xml => @project_users }
     end
   end
@@ -31,7 +29,6 @@ class ProjectUsersController < ApplicationController
   # POST /project_users
   # POST /project_users.xml
   def create
-  	@project = Project.find_by_id(params[:pid])
     @users = User.find(:all)
     @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
 
@@ -42,8 +39,12 @@ class ProjectUsersController < ApplicationController
 					project_user = ProjectUser.new
 					project_user.project_id = @project.id
 					project_user.user_id = user.id
-					project_user.user_type = params["user_type#{user.id}"]
+					project_user.user_type = params["user_type"][user.id.to_s]
 					@project.project_users << project_user
+				else
+					project_user = get_project_user_by_user(@project_users, user)
+					project_user.user_type = params["user_type"][user.id.to_s]
+					project_user.save!
 				end
 			else
 				project_user = ProjectUser.find(user.id)

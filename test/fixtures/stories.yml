@@ -1,13 +1,22 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  as_a: MyString
-  i_want_to: MyText
-  so_i_can: MyText
+  title: Criar backlog
+  as_a: Prodcut Owner
+  i_want_to: Criar o Backlog do Projeto
+  so_i_can: Poder controlar o que será entregue
+  project_id: 1
 
 two:
-  title: MyString
-  as_a: MyString
-  i_want_to: MyText
-  so_i_can: MyText
+  title: Criar uma Estória
+  as_a: Product Owner
+  i_want_to: Poder escrever uma estória
+  so_i_can: Momtar o backlog do projeto
+  project_id: 1
+
+three:
+  title: Estimar uma Estória
+  as_a: Team Member
+  i_want_to: Estimar em story points uma estória
+  so_i_can: Estimar as estórias que farão parte do sprint
+  project_id: 1

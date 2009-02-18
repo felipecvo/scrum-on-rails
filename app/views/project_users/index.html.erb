@@ -13,11 +13,11 @@
   <tr>
     <td><%=h project_users.user.login %></td>
     <td><%=h project_users.user_type %></td>
-    <td><%= link_to 'remover', project_users, :confirm => 'Confirma?', :method => :delete %></td>
+    <td><%= link_to 'remover', project_project_users_path(@project), :confirm => 'Confirma?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'editar', :controller => "project_users", :action => "edit", :id => @project.id %>
+<%= link_to 'editar', editing_project_project_users_path(@project) %>

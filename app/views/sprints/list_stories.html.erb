@@ -1,0 +1,29 @@
+<% content_for :header do -%>
+
+	<%= @project.name %> - Estórias do Spring <%= @sprint.goal %>
+<% end -%>
+
+
+<% form_tag :action => "save_stories" do |f| %>
+
+	<table>
+	 <tr>
+		<th></th>
+    <th>Estórias</th>
+  </tr>
+
+	<% for story in @stories %>
+		<tr>
+		  <td>
+				<input type="checkbox" value="<%=story.id%>" id="<%=story.id%>" name="story_ids[]" <% if @sprint.stories.include? story %> checked <%end%> />
+		  <td><%=h story.title %></td>
+		</tr>
+	<% end %>
+	</table>
+  <p>
+    <%= submit_tag "salvar" %>
+  </p>
+<% end %>
+
+
+<%= link_to 'voltar', projects_path %>

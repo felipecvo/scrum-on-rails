@@ -82,7 +82,7 @@ class CreateAuthentication < ActiveRecord::Migration
   end
 
   def self.down
-    # Drop all
+    # Drop all BaseApp
     drop_table :settings
     drop_table :users
     drop_table :profiles

@@ -1,0 +1,15 @@
+<% content_for :header do -%>
+	Listing sprints
+<% end -%>
+<ul style="list-style-type:none">
+<% for sprint in @sprints %>
+  <li style="color:<%= sprint.current? ? "black" : "gray" %>" >
+    <span style="font-size:1.2em; font-weight:bold">#<%=h sprint.position %>-<%=h sprint.goal %></span>&nbsp;<span style="font-size:1em">(<%=h sprint.start_date %> até <%=h sprint.end_date %>)&nbsp;
+  <%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %> | <%= link_to 'estórias', stories_project_sprint_path(@project, sprint) %> | <%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %>
+  </li>
+<% end %>
+</ul>
+<br />
+
+<%= link_to 'novo sprint', new_project_sprint_path(@project) %>
+<%= link_to 'voltar', project_path(@project) %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  title: Wiki 1
+  body: Teste Teste Teste Test
+
+two:
+  project_id: 1
+  title: Wiki 2
+  body: Teste2 Teste2 Teste2 Test2
+
+three:
+  project_id: 2
+  title: Wiki 1
+  body: Teste
+
+four:
+  project_id: 2
+  title: Wiki 2
+  body: Teste2

@@ -1,0 +1,25 @@
+<% content_for :header do -%>
+	New sprint
+<% end -%>
+
+<% form_for([@project, @sprint]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :goal %><br />
+    <%= f.text_field :goal %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </p>
+  <p>
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', project_sprints_path(@project) %>

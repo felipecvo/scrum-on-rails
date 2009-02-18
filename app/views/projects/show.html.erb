@@ -12,6 +12,35 @@
   <%=h @project.uri %>
 </p>
 
+<div>
+	<h2>Usuários</h2>
+	<ul>
+	<% for project_user in @project.project_users %>
+		<li><%=h project_user.user.login %> - <%=h project_user.user_type %> | <%= link_to 'remover', project_project_user_path(@project), :confirm => 'Confirma?', :method => :delete %></li>
+	<%end%>
+	</ul>
+	<p><%= link_to 'gerenciar usuários', :controller => "project_users", :action => "edit", :project_id => @project %></p>
+</div>
+
+<div>
+	<h2>Wiki</h2>
+	<ul>
+	<% for wiki in @project.wikis %>
+		<li><%= h wiki.title %> - <%= link_to 'exibir', project_wiki_path(@project) %> | <%= link_to 'editar', edit_project_wiki_path(@project, wiki) %> | <%= link_to 'excluir', project_wiki_path(@project), :confirm => 'Confirma?', :method => :delete %></li>
+	<%end%>
+	</ul>
+	<p><%= link_to 'nova página', :controller => "wikis", :action => "new", :project_id => @project %></p>
+</div>
+
+<div>
+	<h2>Estórias</h2>
+	<ul>
+	<% for story in @project.stories %>
+		<li><%=h story.title %> </li>
+	<%end%>
+	</ul>
+	<p><%= link_to 'gerenciar estórias', project_stories_path(@project) %></p>
+</div>
 
 <%= link_to 'editar', edit_project_path(@project) %> |
 <%= link_to 'voltar', projects_path %>
