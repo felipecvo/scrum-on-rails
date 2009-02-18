@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
   include ProjectDependent
+  protect_from_forgery :except => [:estimate]
+
 
   def sort
     params[:stories].each_with_index do |id, index|
@@ -79,6 +81,16 @@ class StoriesController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @story.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+
+  def estimate
+    @story = @project.stories.find(params[:id])
+    @story.estimate = params["edit_story"]["estimate"] if !params["edit_story"]["estimate"].nil?
+    @story.save
+    respond_to do |format|
+      format.js { render :json => @story }
     end
   end
 

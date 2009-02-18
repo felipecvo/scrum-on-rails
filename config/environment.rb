@@ -37,3 +37,5 @@ Rails::Initializer.run do |config|
 
   config.active_record.observers = :user_observer
 end
+
+ActiveRecord::Base.include_root_in_json = false
