@@ -41,6 +41,8 @@
 	</ul>
 	<p><%= link_to 'gerenciar estórias', project_stories_path(@project) %></p>
 </div>
+<<<<<<< HEAD:app/views/projects/show.html.erb
+
 <div>
 	<h2>Sprints</h2>
 	<ul style="list-style-type:none">
@@ -52,7 +54,8 @@
 </ul>
 	<p><%= link_to 'gerenciar sprints', project_sprints_path(@project) %></p>
 </div>
-
-
+=======
+<%=link_to "gerenciar sprints", project_sprints_path(@project) %>
+>>>>>>> d03f722adfe769d085c52ea6a010d6171d050c1f:app/views/projects/show.html.erb
 <%= link_to 'editar', edit_project_path(@project) %> |
 <%= link_to 'voltar', projects_path %>

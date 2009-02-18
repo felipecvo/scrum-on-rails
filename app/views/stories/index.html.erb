@@ -1,5 +1,5 @@
 <% content_for :javascript do -%>
-  <%= javascript_include_tag "event_delegation.js", "editable.js" %>
+  <%= javascript_include_tag "scriptaculous.js" %>
 <% end -%>
 
 <% content_for :header do -%>
@@ -26,8 +26,9 @@ Lista de estórias do Projeto <%= @project.name %>
     <p><strong>As a: </strong><%=h story.as_a %></p>
     <p><strong>I want to: </strong><%=h story.i_want_to %></p>
     <p><strong>So I can: </strong><%=h story.so_i_can %></p>
-    <% story.estimate = story.estimate.nil? ? 0 : story.estimate %>
-    <p><strong>Estimativa: </strong><%= edit_in_place(story, :estimate, :url => estimate_project_story_path(@project, story), :id => "story[estimate]") -%></p>
+    <% estimate = story.estimate.nil? ? "ainda não estimado" : story.estimate.to_s %>
+    <p><strong>Estimativa: </strong><span id='<%= "estimate_me_#{story.id}" %>'><%=estimate%></span>
+    </p>
     &nbsp;
 
   <% end %>
@@ -40,3 +41,12 @@ Lista de estórias do Projeto <%= @project.name %>
 
 <%= link_to 'nova estória', new_project_story_path(@project) %>
 <%= link_to 'voltar', project_path(@project) %>
+
+
+
+
+<script type="text/javascript">
+<% for story in @stories  %>
+ new Ajax.InPlaceCollectionEditor('<%= "estimate_me_#{story.id}" %>', '<%= estimate_project_story_path(@project, story) %>', { collection: [["0", 0],["1", 1],["2", 2],["3", 3],["5", 5],["8", 8],["13", 13],["20", 20],["40", 40],["100", 100]], ajaxOptions: {method: 'put'} } );
+<%end%>
+</script>

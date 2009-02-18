@@ -73,31 +73,4 @@ module ApplicationHelper
     messages
   end
 
-  #usage: <%= edit_in_place_for(@list, :name) or edit_in_place(@comment, :body, :url => url_for(@post, @comment)) %>
-  def edit_in_place(record, field, options={})
-    options[:tag] ||= :div
-    options[:url] ||= url_for(record)
-    options[:id] ||= "#{dom_id(record)}_#{field}"
-    content_tag options[:tag], record.send(field), :class => 'editable', :rel => options[:url], :id => options[:id]
-  end
-
-  #usage: <%= edit_in_place([@post, @comment], :body) %>
-  def edit_in_place_for(resource, field, options={})
-    # Get record to be edited. If resource is an array, pull it out.
-    record = resource.is_a?(Array) ? resource.last : resource
-
-    options[:id]  ||= "#{dom_id(record)}_#{field}"
-    options[:tag] ||= :div
-    options[:url] ||= url_for(resource)
-    options[:rel] = options.delete(:url)
-
-    classes = options[:class].try(:split, ' ') || []
-    classes << 'editable'
-    options[:class] = classes.uniq.join(' ')
-
-    content_tag(options[:tag], record.send(field), options)
-  end
-
-
-
 end
