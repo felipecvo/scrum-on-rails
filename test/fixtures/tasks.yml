@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  story_id: 442820205
+  description: Task 1 Description
+  status: TODO
+
+two:
+  user_id: 1
+  story_id: 1
+  description: MyString
+  status: MyString

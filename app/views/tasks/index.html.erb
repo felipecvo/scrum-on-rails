@@ -1,0 +1,32 @@
+<% content_for :header do -%>
+Listing tasks
+<% end -%>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Story</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+
+<% for task in @tasks %>
+  <tr>
+    <td><%=h task.user.login %></td>
+    <td><%=h task.story.title %></td>
+    <td><%=h task.description %></td>
+    <td><%=h task.status %></td>
+    <td><%= link_to 'Show', project_story_task_path(@project, @story, task) %></td>
+
+    <td><%= link_to 'Edit', edit_project_story_task_path(@project, @story, task) %></td>
+
+    <td><%= link_to 'Destroy', project_story_task_path(@project, @story, task), :confirm => 'Are you sure?', :method => :delete %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New task', new_project_story_task_path %> | 
+<%= link_to 'Back', project_stories_path %>

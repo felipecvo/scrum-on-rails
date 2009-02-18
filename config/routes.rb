@@ -2,7 +2,9 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :projects do |projects|
-    projects.resources :stories, :member => { :estimate => :post }, :collection => { :current_sprint => :get, :sort => :post }
+    projects.resources :stories, :member => { :estimate => :post }, :collection => { :current_sprint => :get, :sort => :post } do |story|
+      story.resources :tasks
+    end
     projects.resources :wikis
     projects.resources :project_users, :collection => { :editing => :get }
   	projects.resources :sprints, :member => { :save_stories => :post, :stories => :get }

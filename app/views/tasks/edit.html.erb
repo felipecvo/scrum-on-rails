@@ -1,0 +1,24 @@
+<h1>Editing task</h1>
+
+<% form_for([@project, @story, @task]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= collection_select(:task, :user_id, @users, :id, :login) %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', project_story_task_path %> |
+<%= link_to 'Back', project_story_tasks_path( @project, @story) %>
