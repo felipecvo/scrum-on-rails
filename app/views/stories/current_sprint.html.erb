@@ -1,0 +1,27 @@
+<% content_for :header do -%>
+	Listing stories
+<% end -%>
+
+<style>
+  li .handle  {
+    font-size: 12px;
+    color: #777;
+  }
+</style>
+
+
+
+<ul id="stories">
+<% for story in @stories  %>
+  <% content_tag_for :li, story do %>
+    <h3><span class="handle"><%= h story.title %>&nbsp;</span></h3>
+    <p><strong>As a: </strong><%=h story.as_a %></p>
+    <p><strong>I want to: </strong><%=h story.i_want_to %></p>
+    <p><strong>So I can: </strong><%=h story.so_i_can %></td>
+  <% end %>
+<% end %>
+</ul>
+
+
+<br /><br />
+<%= link_to 'voltar', project_path(@project) %>

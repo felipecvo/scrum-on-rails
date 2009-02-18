@@ -93,4 +93,14 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def current_sprint
+    @stories = @project.sprints.last.stories
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @stories }
+    end
+  end
+
 end

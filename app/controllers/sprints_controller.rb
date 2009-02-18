@@ -47,7 +47,7 @@ class SprintsController < ApplicationController
     @sprint = @project.sprints.find(params[:id])
   end
 
-  def stories
+  def assign_stories
     @sprint = @project.sprints.find(params[:id], :order => "position")
     @stories = @project.stories
 
