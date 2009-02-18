@@ -87,10 +87,10 @@ class StoriesController < ApplicationController
 
   def estimate
     @story = @project.stories.find(params[:id])
-    @story.estimate = params["edit_story"]["estimate"] if !params["edit_story"]["estimate"].nil?
+    @story.estimate = params["value"] if !params["value"].nil?
     @story.save
     respond_to do |format|
-      format.js { render :json => @story }
+      format.js { render :json => @story.estimate }
     end
   end
 
