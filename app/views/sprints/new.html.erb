@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	New sprint
+	Novo Sprint do Projeto <%= @project.name %>
 <% end -%>
 
 <% form_for([@project, @sprint]) do |f| %>
@@ -18,8 +18,8 @@
     <%= f.date_select :end_date %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Criar" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', project_sprints_path(@project) %>
+<%= link_to 'voltar', project_sprints_path(@project) %>

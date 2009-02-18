@@ -23,4 +23,8 @@ class Sprint < ActiveRecord::Base
 	def current?
 		self[:start_date] <= Date.today && self[:end_date] >= Date.today
 	end
+
+	def total_estimate
+		self.stories.sum(:estimate)
+	end
 end

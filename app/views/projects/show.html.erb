@@ -26,7 +26,7 @@
 	<h2>Wiki</h2>
 	<ul>
 	<% for wiki in @project.wikis %>
-		<li><%= h wiki.title %> - <%= link_to 'exibir', project_wiki_path(@project) %> | <%= link_to 'editar', edit_project_wiki_path(@project, wiki) %> | <%= link_to 'excluir', project_wiki_path(@project), :confirm => 'Confirma?', :method => :delete %></li>
+		<li><%= h wiki.title %> - <%= link_to 'exibir', project_wiki_path(@project, wiki) %></li>
 	<%end%>
 	</ul>
 	<p><%= link_to 'nova página', :controller => "wikis", :action => "new", :project_id => @project %></p>
@@ -36,7 +36,7 @@
 	<h2>Estórias</h2>
 	<ul>
 	<% for story in @project.stories %>
-		<li><%=h story.title %> </li>
+		<li><%=h story.title %> - <%= link_to 'exibir', project_story_path(@project, story) %> </li>
 	<%end%>
 	</ul>
 	<p><%= link_to 'gerenciar estórias', project_stories_path(@project) %></p>
@@ -46,7 +46,12 @@
 	<ul style="list-style-type:none">
 <% for sprint in @project.sprints.reverse %>
   <li style="color:<%= sprint.current? ? "black" : "gray" %>" >
-    <span style="font-size:1.2em; font-weight:bold">#<%=h sprint.position %>-<%=h sprint.goal %></span>&nbsp;<span style="font-size:1em">(<%=h sprint.start_date %> até <%=h sprint.end_date %>)&nbsp;
+    <span style="font-size:1.2em; font-weight:bold">#
+    	<%=h sprint.position %>-<%=h sprint.goal %>
+    </span>&nbsp;
+    <span style="font-size:1em">(<%=h sprint.total_estimate %> pontos)</span>&nbsp;
+    <span style="font-size:1em">(<%=h sprint.start_date %> até <%=h sprint.end_date %>)</span>&nbsp;
+
   </li>
 <% end %>
 </ul>

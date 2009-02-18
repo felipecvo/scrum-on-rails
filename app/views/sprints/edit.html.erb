@@ -1,5 +1,5 @@
 <% content_for :header do -%>
-	Editing sprint
+	Edição do sprint
 <% end -%>
 
 <% form_for([@project,@sprint]) do |f| %>
@@ -18,9 +18,9 @@
     <%= f.date_select :end_date %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Atualizar" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', project_sprint_path(@project, @sprint) %> |
-<%= link_to 'Back', project_sprints_path(@project) %>
+<%= link_to 'exibir', project_sprint_path(@project, @sprint) %> |
+<%= link_to 'voltar', project_sprints_path(@project) %>

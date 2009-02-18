@@ -16,7 +16,7 @@ class WikisController < ApplicationController
   # GET /wikis/1
   # GET /wikis/1.xml
   def show
-    @wiki = Wiki.find(params[:id])
+    @wiki =  @project.wikis.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
-    @wiki = Wiki.find(params[:id])
+    @wiki =  @project.wikis.find(params[:id])
   end
 
   # POST /wikis
@@ -61,7 +61,7 @@ class WikisController < ApplicationController
   # PUT /wikis/1
   # PUT /wikis/1.xml
   def update
-    @wiki = Wiki.find(params[:id])
+    @wiki = @project.wikis.find(params[:id])
 
     respond_to do |format|
       if @wiki.update_attributes(params[:wiki])
@@ -78,7 +78,8 @@ class WikisController < ApplicationController
   # DELETE /wikis/1
   # DELETE /wikis/1.xml
   def destroy
-    @wiki = Wiki.find(params[:id])
+    @wiki = @project.wikis.find(params[:id])
+    @project.wikis.delete(@wiki)
     @wiki.destroy
 
     respond_to do |format|
