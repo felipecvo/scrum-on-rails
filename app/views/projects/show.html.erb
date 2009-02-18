@@ -35,7 +35,7 @@
 <div>
 	<h2>Estórias</h2>
 	<ul>
-	<% for story in @project.stories %>
+	<% for story in @project.stories.find(:all, :order => "") %>
 		<li><%=h story.title %> </li>
 	<%end%>
 	</ul>
