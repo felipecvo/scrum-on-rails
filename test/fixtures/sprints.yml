@@ -2,12 +2,14 @@
 
 one:
   goal: Sprint 1
-  start_date: 2009-02-17
-  end_date: 2009-03-17
+  start_date: <%= Date.today - 15.days%>
+  end_date: <%= Date.today - 1.days%>
+  position: 1
   project_id: 1
 
 two:
   goal: Sprint 2
-  start_date: 2009-03-17
-  end_date: 2009-04-17
+  start_date: <%= Date.today%>
+  end_date: <%= Date.today + 14.days%>
+  position: 2
   project_id: 1
