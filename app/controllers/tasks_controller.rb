@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   include ProjectDependent
-  before_filter :require_authentication, :load_data
+  before_filter :require_authentication
+  before_filter :load_data, :except => [:update_task_status]
+  protect_from_forgery :except => [:update_task_status]
 
   # GET /tasks
   # GET /tasks.xml
@@ -44,7 +46,7 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task = @story.tasks.build(params[:task])
-
+    @task.status = "TODO"
     respond_to do |format|
       if @task.save
         flash[:notice] = 'Task was successfully created.'
@@ -84,6 +86,39 @@ class TasksController < ApplicationController
       format.html { redirect_to project_story_tasks_url(@project, @story) }
       format.xml  { head :ok }
     end
+  end
+
+  def update_task_status
+     if !params[:data].blank? && !params[:status].blank?
+       status = "TODO"
+       if params[:status].include? "WORKING"
+         status = "WORKING"
+       end
+       if params[:status].include? "DONE"
+         status = "DONE"
+       end
+
+       if params[:data].include? ","
+         @ids = params[:data].split(",")
+         for id in @ids
+            @task = Task.find(id)
+            if !@task.nil?
+              @task.status = status
+              @task.save
+            end
+         end
+       else
+         @task = Task.find(params[:data])
+         if !@task.nil?
+           @task.status = status
+           @task.save
+         end
+       end
+     end
+
+     respond_to do |format|
+        format.js { render :text => "ok" }
+     end
   end
 
   private

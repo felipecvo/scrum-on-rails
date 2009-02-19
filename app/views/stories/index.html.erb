@@ -27,8 +27,8 @@ Lista de estórias do Projeto <%= @project.name %>
     <p><strong>I want to: </strong><%=h story.i_want_to %></p>
     <p><strong>So I can: </strong><%=h story.so_i_can %></p>
     <% estimate = story.estimate.nil? ? "ainda não estimado" : story.estimate.to_s %>
-    <p><strong>Estimativa: </strong><span id='<%= "estimate_me_#{story.id}" %>'><%=estimate%></span>
-    </p>
+    <p><strong>Estimativa: </strong><span id='<%= "estimate_me_#{story.id}" %>'><%=estimate%></span></p>
+    <p><%= link_to 'tasks', project_story_tasks_path(@project, story) %></p>
     &nbsp;
 
   <% end %>

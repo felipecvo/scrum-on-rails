@@ -22,6 +22,6 @@
   <%=h @story.so_i_can %>
 </p>
 
-
-<%= link_to 'Edit', edit_project_story_path(@project,@story) %> |
-<%= link_to 'Back', project_stories_path(@project) %>
+<p><%= link_to 'tasks', project_story_tasks_path(@project, @story) %> |
+<%= link_to 'editar', edit_project_story_path(@project,@story) %> |
+<%= link_to 'voltar', project_stories_path(@project) %> </p>

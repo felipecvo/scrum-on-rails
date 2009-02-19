@@ -1,0 +1,134 @@
+<% content_for :javascript do -%>
+  <%= javascript_include_tag "scriptaculous.js" %>
+<% end -%>
+<% content_for :stylesheet do -%>
+<style>
+	body, div {
+		font-family: Arial, Helvetica;
+		font-size: 11px;
+		height: 100%;
+	}
+
+	div.section {
+		border: 1px solid #CCCCCC;
+		margin: 0.5px 0.5px 0.5px 0.5px;
+		/*margin: 30px 5px;
+		padding: 0px 0px 10px 0px;*/
+		padding: 0px 0px 5px 0px;
+		background-color: #EFEFEF;
+		height: auto;
+		min-height: 100%;
+		width: 100%;
+	}
+
+	div.section h3 {
+		cursor: move;
+	}
+
+	div.lineitem {
+		background-color: #FFFFFF;
+		cursor: move;
+ 		margin: 5px 5px 5px 5px;
+ 		height: auto;
+	}
+
+	h1 {
+		margin-bottom: 0;
+		font-size: 18px;
+	}
+
+	td.header
+	{
+		border: 0.5pt dashed gray; font-weight: bold; color: black; height: 30px;
+	}
+
+	td.line
+	{
+		border: 0.5pt dashed gray; font-weight: normal; color: black; min-height=100px; height: 50px;
+	}
+</style>
+<% end -%>
+
+<% content_for :header do -%>
+Scrum Board
+<% end -%>
+
+
+<div id="page">
+<br />
+	<table width="100%" style="border: 1pt solid gray;">
+		<tr bgcolor="#E78625">
+			<td align="center" class="header">STORY</td>
+			<td align="center" class="header">TO DO</td>
+			<td align="center" class="header">WORK IN PROGRESS</td>
+			<td align="center" class="header">DONE</td>
+		</tr>
+
+	  <% for story in @sprint.stories -%>
+		<tr>
+			<td class="line"><%= story.title %></td>
+			<td width="150px" class="line">
+				<div id='<%= "TODO_#{story.id}" %>' class="section">
+				  <% for task in story.tasks_todo -%>
+						<div id='<%= "task_#{task.id}" %>' class="lineitem"> <font color="red">#</font> - <%= task.description %></div>
+					<% end -%>
+	 			</div>
+		</td>
+		<td width="150px" class="line">
+				<div id='<%= "WORKING_#{story.id}" %>' class="section">
+
+					  <% for task in story.tasks_working -%>
+							<div id='<%= "task_#{task.id}" %>' class="lineitem"> <font color="red">#</font> - <%= task.description %></div>
+						<% end -%>
+				</div>
+		</td>
+		<td width="150px" class="line">
+				<div id='<%= "DONE_#{story.id}" %>' class="section">
+					  <% for task in story.tasks_done -%>
+							<div id='<%= "task_#{task.id}" %>' class="lineitem"> <font color="red">#</font> - <%= task.description %></div>
+						<% end -%>
+				</div>
+		</td>
+	</tr>
+	<% end -%>
+
+	</table>
+
+</div>
+
+<p><%= link_to 'voltar', project_path(@project) %></p>
+
+<script type="text/javascript">
+
+	// <![CDATA[
+
+	var SL = {
+		updated: function (element) {
+     var id = element.getAttribute('id');
+     var tasksIds = Sortable.sequence(id);
+ 		 //alert(tasksIds + " indo para " + id);
+		 new Ajax.Request('<%= update_task_status_path(@project) %>', {
+				method: "put",
+				parameters: { status: id, data: tasksIds.toString() }
+	    });
+   	}
+  };
+
+<% for story in @sprint.stories %>
+	<%= "sections#{story.id} = ['TODO_#{story.id}','WORKING_#{story.id}','DONE_#{story.id}']" %>
+	<%= "Sortable.create('TODO_#{story.id}',{tag:'div',dropOnEmpty: true,  containment: sections#{story.id},only:'lineitem', onUpdate: SL.updated});" %>
+	<%= "Sortable.create('WORKING_#{story.id}',{tag:'div',dropOnEmpty: true,  containment: sections#{story.id},only:'lineitem', onUpdate: SL.updated});" %>
+		<%= "Sortable.create('DONE_#{story.id}',{tag:'div',dropOnEmpty: true, containment: sections#{story.id},only:'lineitem', onUpdate: SL.updated});" %>
+<% end %>
+
+	Sortable.create('page',{tag:'div',only:'section',handle:'handle'});
+
+//	sections1 = ['TODO1','WORKING1','DONE1'];
+//	Sortable.create('TODO1',{tag:'div',dropOnEmpty: true,  containment: sections1,only:'lineitem', onUpdate: SL.updated});
+//	Sortable.create('WORKING1',{tag:'div',dropOnEmpty: true,  containment: sections1,only:'lineitem', onUpdate: SL.updated});
+//	Sortable.create('DONE1',{tag:'div',dropOnEmpty: true, containment: sections1,only:'lineitem', onUpdate: SL.updated});
+//	Sortable.create('page',{tag:'div',only:'section',handle:'handle'});
+
+
+	// ]]>
+</script>

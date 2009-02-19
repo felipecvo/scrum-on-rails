@@ -118,4 +118,9 @@ class SprintsController < ApplicationController
       end
     end
   end
+
+  def scrum_board
+    @sprint = @project.sprints.find(params[:id])
+  end
+
 end

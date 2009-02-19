@@ -12,13 +12,17 @@
     <%= f.text_field :description %>
   </p>
   <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    Status<br />
+    <strong><%= @task.status %></strong>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Atualizar" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', project_story_task_path %> |
-<%= link_to 'Back', project_story_tasks_path( @project, @story) %>
+
+
+
+<p><%= link_to 'tasks', project_story_tasks_path(@project, @story) %> |
+<%= link_to 'exibir', project_story_task_path %> |
+<%= link_to 'voltar', project_story_tasks_path( @project, @story) %> </p>
