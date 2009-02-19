@@ -7,9 +7,8 @@ class Story < ActiveRecord::Base
 	validates_presence_of :title, :as_a, :i_want_to, :so_i_can
 	validates_associated :project
 
-	def done?
-	    self[:done]
-  	end
+<<<<<<< HEAD:app/models/story.rb
+
 
 	def tasks_todo
 		items = self.tasks.select do |item|
@@ -31,4 +30,9 @@ class Story < ActiveRecord::Base
     end
 		return items
 	end
+=======
+  def done?
+    self[:done]
+  end
+>>>>>>> b2902e1e938e5556507c03726a481b019f66b1fa:app/models/story.rb
 end

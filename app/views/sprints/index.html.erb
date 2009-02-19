@@ -4,23 +4,23 @@
 <ul style="list-style-type:none">
 <% for sprint in @sprints %>
   <li style="color:<%= sprint.current? ? "black" : "gray" %>" >
-    <span style="font-size:1.2em; font-weight:bold">
+    <h3 style="display:inline"><span style="font-size:1.2em; font-weight:bold">
     #<%=h sprint.position %>-<%=h sprint.goal %>
-    </span>&nbsp;
+    </span></h3>&nbsp;
     <span style="font-size:1em">(<%=h sprint.total_estimate %> pontos)</span>
     <span style="font-size:1em">(<%=h sprint.start_date %> até <%=h sprint.end_date %>)&nbsp;
   <%= link_to 'editar', edit_project_sprint_path(@project, sprint) %> | <%= link_to 'estórias', assign_stories_project_sprint_path(@project, sprint) %> | <%= link_to 'excluir', project_sprint_path(@project, sprint), :confirm => 'Confirma ?', :method => :delete %>
   </span>
   </li>
   <li>
-    <h4>Estórias</h4>
     <ul>
       <% for story in sprint.stories %>
-      <li>
-        <%= h story.title %> - Pontos: (<%= h(story.estimate.nil? ? "ainda não definido" : story.estimate) %>)
-      </li>
+		<li>
+        	<%= h story.title %> - Pontos: (<%= h(story.estimate.nil? ? "ainda não definido" : story.estimate) %>)
+      	</li>
       <% end %>
     </ul>
+	<br />
   </li>
 <% end %>
 </ul>
