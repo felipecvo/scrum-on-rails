@@ -47,6 +47,6 @@ Lista de estórias do Projeto <%= @project.name %>
 
 <script type="text/javascript">
 <% for story in @stories  %>
- new Ajax.InPlaceCollectionEditor('<%= "estimate_me_#{story.id}" %>', '<%= estimate_project_story_path(@project, story) %>', { collection: [["0", 0],["1", 1],["2", 2],["3", 3],["5", 5],["8", 8],["13", 13],["20", 20],["40", 40],["100", 100]], ajaxOptions: {method: 'put'} } );
+ new Ajax.InPlaceCollectionEditor('<%= "estimate_me_#{story.id}" %>', '<%= estimate_project_story_path(@project, story) %>', { collection: [["0", 0],["1", 1],["2", 2],["3", 3],["5", 5],["8", 8],["13", 13],["20", 20],["40", 40],["100", 100]], ajaxOptions: {method: 'post'} } );
 <%end%>
 </script>

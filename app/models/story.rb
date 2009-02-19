@@ -7,5 +7,7 @@ class Story < ActiveRecord::Base
 	validates_presence_of :title, :as_a, :i_want_to, :so_i_can
 	validates_associated :project
 
-
+  def done?
+    self[:done]
+  end
 end
