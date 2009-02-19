@@ -13,7 +13,7 @@
   </tr>
 
 	<% for story in @stories %>
-		<% if @sprint.current? && (story.done? || @sprint.stories.include?(story) )%>
+		<% if @sprint.current?%>
 		<tr>
 		  <td>
 				<input type="checkbox" value="<%=story.id%>" id="<%=story.id%>" name="story_ids[]" <% if @sprint.stories.include? story %> checked <%end%> />
