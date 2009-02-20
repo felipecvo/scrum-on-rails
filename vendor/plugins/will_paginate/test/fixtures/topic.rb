@@ -2,18 +2,9 @@ class Topic < ActiveRecord::Base
   has_many :replies, :dependent => :destroy, :order => 'replies.created_at DESC'
   belongs_to :project
 
-  # pretend find and count were extended and accept an extra option
-  # if there is a :foo option, prepend its value to collection
-  def self.find(*args)
-    more = []
-    more << args.last.delete(:foo) if args.last.is_a?(Hash) and args.last[:foo]
-    res = super
-    more.empty?? res : more + res
-  end
-
-  # if there is a :foo option, always return 100
-  def self.count(*args)
-    return 100 if args.last.is_a?(Hash) and args.last[:foo]
-    super
-  end
+  named_scope :mentions_activerecord, :conditions => ['topics.title LIKE ?', '%ActiveRecord%']
+  
+  named_scope :with_replies_starting_with, lambda { |text|
+    { :conditions => "replies.content LIKE '#{text}%' ", :include  => :replies }
+  }
 end

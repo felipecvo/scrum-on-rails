@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :require_authentication
+  #before_filter :require_authentication
 
   # GET /projects
   # GET /projects.xml

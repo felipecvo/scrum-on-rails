@@ -1,7 +1,9 @@
 class StoriesController < ApplicationController
   include ProjectDependent
+
   protect_from_forgery :except => [:estimate]
 
+  #before_filter :require_authentication
 
   def sort
     params[:stories].each_with_index do |id, index|
@@ -10,7 +12,7 @@ class StoriesController < ApplicationController
     render :nothing => true
   end
 
-  before_filter :require_authentication
+
 
   # GET /projects/1/stories
   # GET /projects/1/stories.xml
