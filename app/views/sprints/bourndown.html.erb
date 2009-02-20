@@ -1,0 +1,10 @@
+<% content_for :javascript do -%>
+  <%= javascript_include_tag "swfobject.js" %>
+<% end -%>
+
+<% content_for :header do -%>
+ <%= @project.name %>	- <%= @sprint.goal %> - burndown
+<% end -%>
+
+
+<%= remote_graph("burndown",  {:route=> create_bourndown_project_sprint_path(@project, @sprint), :width=>600,:height=>600 }) %>

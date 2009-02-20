@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Drag Drop</title>
+
+	<script src="javascripts/prototype.js" language="JavaScript"></script>
+	<script src="javascripts/scriptaculous.js" language="JavaScript"></script>
+	<script src="javascripts/builder.js" type="text/javascript"></script>
+	<script src="javascripts/effects.js" type="text/javascript"></script>
+	<script src="javascripts/dragdrop.js" type="text/javascript"></script>
+	<script src="javascripts/controls.js" type="text/javascript"></script>
+	<script src="javascripts/slider.js" type="text/javascript"></script>
+
+<style>
+	body, div {
+		font-family: Arial, Helvetica;
+		font-size: 11px;
+	}
+
+	div.section,div#createNew {
+		border: 1px solid #CCCCCC;
+		margin: 30px 5px;
+		padding: 0px 0px 10px 0px;
+		background-color: #EFEFEF;
+	}
+
+	div#createNew input { margin-left: 5px; }
+
+	div#createNew h3, div.section h3{
+		font-size: 14px;
+		padding: 2px 5px;
+		margin: 0 0 10px 0;
+		background-color: #CCCCCC;
+		display: block;
+	}
+
+	div.section h3 {
+		cursor: move;
+	}
+
+	div.lineitem {
+		margin: 3px 10px;
+		padding: 2px;
+		background-color: #FFFFFF;
+		cursor: move;
+	}
+
+	h1 {
+		margin-bottom: 0;
+		font-size: 18px;
+	}
+</style>
+</head>
+<body>
+
+<div id="page">
+
+	<table>
+		<tr>
+			<th>ESToRIA</th>
+			<th>TO DO</th>
+			<th>WORK IN PROGRESS</th>
+			<th>DONE</th>
+		</tr>
+
+		<tr>
+			<td>estoria 1</td>
+			<td>
+				<div id="TODO1" class="section">
+					<h3 class="handle"></h3>
+					<div id="item_1" class="lineitem">Tarefa 1</div>
+					<div id="item_2" class="lineitem">Tarefa 2</div>
+					<div id="item_3" class="lineitem">Tarefa 3</div>
+					<div id="item_4" class="lineitem">Tarefa 4</div>
+					<div id="item_5" class="lineitem">Tarefa 5</div>
+					<div id="item_6" class="lineitem">Tarefa 6</div>
+					<div id="item_7" class="lineitem">Tarefa 7</div>
+					<div id="item_8" class="lineitem">Tarefa 8</div>
+					<div id="item_9" class="lineitem">Tarefa 9</div>
+					<div id="item_10" class="lineitem">Tarefa 10</div>
+				</div>
+		</td>
+		<td>
+				<div id="WORKING1" class="section">
+						<h3 class="handle"></h3>
+				</div>
+		</td>
+		<td>
+				<div id="DONE1" class="section">
+						<h3 class="handle"></h3>
+				</div>
+		</td>
+	</tr>
+
+	<tr>
+			<td>estoria 2</td>
+			<td>
+				<div id="TODO2" class="section">
+					<h3 class="handle"></h3>
+					<div id="item_1" class="lineitem">Tarefa 1</div>
+					<div id="item_2" class="lineitem">Tarefa 2</div>
+					<div id="item_3" class="lineitem">Tarefa 3</div>
+					<div id="item_4" class="lineitem">Tarefa 4</div>
+					<div id="item_5" class="lineitem">Tarefa 5</div>
+					<div id="item_6" class="lineitem">Tarefa 6</div>
+					<div id="item_7" class="lineitem">Tarefa 7</div>
+					<div id="item_8" class="lineitem">Tarefa 8</div>
+					<div id="item_9" class="lineitem">Tarefa 9</div>
+					<div id="item_10" class="lineitem">Tarefa 10</div>
+				</div>
+		</td>
+		<td>
+				<div id="WORKING2" class="section">
+						<h3 class="handle"></h3>
+				</div>
+		</td>
+		<td>
+				<div id="DONE2" class="section">
+						<h3 class="handle"></h3>
+				</div>
+		</td>
+	</tr>
+
+	</table>
+</div>
+
+<script type="text/javascript">
+
+	// <![CDATA[
+
+	var SL = {
+		updated: function (item) {
+     var id = item.getAttribute('id');
+ 		 //alert(item);
+   	}
+  };
+
+	sections1 = ['TODO1','WORKING1','DONE1'];
+	Sortable.create('TODO1',{tag:'div',dropOnEmpty: true,containment: sections1,only:'lineitem', onUpdate: SL.updated});
+	Sortable.create('WORKING1',{tag:'div',dropOnEmpty: true, containment: sections1,only:'lineitem', onUpdate: SL.updated});
+	Sortable.create('DONE1',{tag:'div',dropOnEmpty: true, containment: sections1,only:'lineitem', onUpdate: SL.updated});
+
+	sections2 = ['TODO2','WORKING2','DONE2'];
+	Sortable.create('TODO2',{tag:'div',dropOnEmpty: true,containment: sections2,only:'lineitem', onUpdate: SL.updated});
+	Sortable.create('WORKING2',{tag:'div',dropOnEmpty: true,containment: sections2,only:'lineitem', onUpdate: SL.updated});
+	Sortable.create('DONE2',{tag:'div',dropOnEmpty: true,containment: sections2,only:'lineitem', onUpdate: SL.updated});
+
+
+	Sortable.create('page',{tag:'div',only:'section',handle:'handle'});
+
+
+
+	var myobserver = {
+		onEnd: function(draggable) {
+			alert("end");
+   		alert(draggable);
+		}
+	}
+	Draggables.addObserver(myobserver);
+	new Draggable('item_1');
+
+	// ]]>
+</script>
+
+</body>
+</html>

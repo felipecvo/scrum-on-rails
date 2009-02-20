@@ -36,12 +36,17 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    if @project.user != current_user
+        flash[:notice] = 'Você não tem permissão para editar o projeto.'
+        redirect_to(@project)
+    end
   end
 
   # POST /projects
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    @project.user = current_user
 
     respond_to do |format|
       if @project.save
@@ -59,6 +64,10 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+    if @project.user != current_user
+        flash[:notice] = 'Você não tem permissão para editar o projeto.'
+        redirect_to(@project)
+    end
     respond_to do |format|
       if @project.update_attributes(params[:project])
         flash[:notice] = 'Project was successfully updated.'
