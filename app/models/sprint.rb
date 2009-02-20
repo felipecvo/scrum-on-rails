@@ -27,4 +27,18 @@ class Sprint < ActiveRecord::Base
 	def total_estimate
 		self.stories.sum(:estimate)
 	end
+
+	def total_remaining_at(date)
+		total_finished = 0
+
+		for story in stories
+			done_at = story.done_at
+			if !done_at.nil? && done_at <= date
+				total_finished += story.estimate
+			end
+		end
+
+		total = total_estimate - total_finished
+		return total
+	end
 end

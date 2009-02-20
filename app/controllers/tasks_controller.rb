@@ -102,16 +102,16 @@ class TasksController < ApplicationController
          @ids = params[:data].split(",")
          for id in @ids
             @task = Task.find(id)
-            if !@task.nil?
+            if !@task.nil? && @task.status != status
               @task.status = status
               @task.save
             end
          end
        else
          @task = Task.find(params[:data])
-         if !@task.nil?
-           @task.status = status
-           @task.save
+         if !@task.nil? && @task.status != status
+             @task.status = status
+             @task.save
          end
        end
      end

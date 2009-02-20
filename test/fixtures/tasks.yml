@@ -23,3 +23,15 @@ four:
   story_id: 1
   description: Task 4 Description
   status: TODO
+
+five:
+  user_id: 1
+  story_id: 1
+  description: Task 5 Description
+  status: DONE
+
+six:
+  user_id: 1
+  story_id: 1
+  description: Task 6 Description
+  status: DONE

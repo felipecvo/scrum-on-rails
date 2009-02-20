@@ -5,7 +5,7 @@ class ProjectUsersController < ApplicationController
   # GET /project_users
   # GET /project_users.xml
   def index
-    @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
+    @project_users = @project.project_users.find(:all)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @project_users }
@@ -16,8 +16,8 @@ class ProjectUsersController < ApplicationController
   # GET /project_users/new
   # GET /project_users/new.xml
   def editing
+    @project_users = @project.project_users.find(:all)
     @users = User.find(:all)
-    @project_users = ProjectUser.find(:all, :conditions => ["project_id = ?", @project.id])
 
     respond_to do |format|
       format.html { render :action => "edit" }

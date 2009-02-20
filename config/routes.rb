@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
 
     projects.resources :wikis
     projects.resources :project_users, :collection => { :editing => :get }
-  	projects.resources :sprints, :member => { :save_stories => :post, :assign_stories => :get , :scrum_board => :get}
+  	projects.resources :sprints, :member => { :save_stories => :post, :assign_stories => :get , :scrum_board => :get, :bourndown => :get, :create_bourndown => :get }
   end
 
   map.update_task_status '/projects/:project_id/updatets', :controller => 'tasks', :action => 'update_task_status', :requirements => { :method => :put }

@@ -4,8 +4,10 @@ one:
   id: 1
   name: Scrum On Rails
   uri: scrumonrails
+  user_id: 1
 
 two:
   id: 2
   name: Projeto 2
   uri: http://projeto2.scrumonrails.com
+  user_id: 1

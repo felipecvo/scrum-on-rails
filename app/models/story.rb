@@ -8,8 +8,19 @@ class Story < ActiveRecord::Base
 	validates_associated :project
 
 	def done?
-	    self[:done]
-  	end
+		self.tasks_done.length == self.tasks.length
+  end
+
+  def done_at
+  	if done?
+  		tasks_copy = Marshal.load( Marshal.dump( tasks ) )
+	  	tasks_copy.sort {|x,y| x.updated_at <=> y.updated_at }
+	  	date = tasks_copy.last.updated_at
+
+			return Date.new(date.year, date.month, date.day)
+	  end
+	  return nil
+ 	end
 
 	def tasks_todo
 		items = self.tasks.select do |item|

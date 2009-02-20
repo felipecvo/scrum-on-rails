@@ -123,4 +123,41 @@ class SprintsController < ApplicationController
     @sprint = @project.sprints.find(params[:id])
   end
 
+  def bourndown
+     @sprint = @project.sprints.find(params[:id])
+  end
+
+  def create_bourndown
+    @sprint = @project.sprints.find(params[:id])
+
+    datas = []
+    initial_date = @sprint.start_date
+    while initial_date <= @sprint.end_date do
+       datas << [initial_date, @sprint.total_remaining_at(initial_date)]
+       initial_date += 1
+    end
+
+    #datas = [["tv",40000],["internet",10000],["magazines",50000],["other",40000]]
+    bar_chart = OpenFlashChartLazy::Bar3d.new("datas")
+
+    points_remain=OpenFlashChartLazy::Serie.new(datas,{:title=>@sprint.goal})
+    bar_chart.add_serie(points_remain)
+
+
+    bar_chart.bg_colour="#FFFFFF"
+    bar_chart.x_axis.colour="#808080"
+    bar_chart.x_axis["grid-colour"]="#A0A0A0"
+    bar_chart.x_axis["3d"]=10
+    bar_chart.y_axis.colour="#808080"
+    bar_chart.y_axis["grid-colour"]="#A0A0A0"
+    bar_chart.y_axis.min=0
+    bar_chart.y_axis.max= @sprint.total_estimate + 10
+    bar_chart.y_axis.steps= 5
+
+    respond_to do |format|
+      format.html { render :text => bar_chart.to_json, :layout => false }
+    end
+  end
+
+
 end
