@@ -52,7 +52,7 @@
     <span style="font-size:1em">(<%=h sprint.total_estimate %> pontos)</span>&nbsp;
     <span style="font-size:1em">(<%=h sprint.start_date %> até <%=h sprint.end_date %>)</span>&nbsp;
     <%= link_to 'scrum board', scrum_board_project_sprint_path(@project, sprint) %> |
-    <%= link_to 'burndown', bourndown_project_sprint_path(@project, sprint) %>
+    <%= link_to 'burndown', burndown_project_sprint_path(@project, sprint) %>
   </li>
 <% end %>
 </ul>
