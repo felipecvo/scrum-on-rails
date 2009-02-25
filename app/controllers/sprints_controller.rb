@@ -123,11 +123,11 @@ class SprintsController < ApplicationController
     @sprint = @project.sprints.find(params[:id])
   end
 
-  def bourndown
+  def burndown
      @sprint = @project.sprints.find(params[:id])
   end
 
-  def create_bourndown
+  def create_burndown
     @sprint = @project.sprints.find(params[:id])
 
     datas = []
