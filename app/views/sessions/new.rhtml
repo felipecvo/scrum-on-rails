@@ -2,13 +2,30 @@
 <%= configatron.site_name %> Login
 <% end -%>
 
+<script type="text/javascript" charset="utf-8">
+	function selecionaGoogle(){
+		ckBox = document.getElementById('use_google_account');
+		openid = document.getElementById('openid_url');
+		if(ckBox.checked){
+			openid.style.display="none"
+			openid.value = "https://www.google.com/accounts/o8/id"
+		}
+		else{
+			openid.style.display="block"
+			openid.value = ""
+		}
+		
+	}
+</script>
 <% form_tag session_path do -%>
 	&nbsp;
 	<fieldset>
 		<legend>Login with OpenID</legend>
 	
 		<p><label for="openid_url">OpenID URL</label><br/>
-		<%= text_field_tag 'openid_url' %></p>		
+		<%= text_field_tag 'openid_url' %></p>
+		<p><label for="use_google_account">Usar sua conta do Google:</label>
+		<%= check_box_tag 'use_google_account', 1, false, {:onclick=> "selecionaGoogle()"}%></p>		
 	</fieldset>
 
 	<fieldset>

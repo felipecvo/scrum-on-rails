@@ -266,7 +266,6 @@ module WillPaginate
     # Calculates visible page numbers using the <tt>:inner_window</tt> and
     # <tt>:outer_window</tt> options.
     def visible_page_numbers
-      debugger
       inner_window, outer_window = @options[:inner_window].to_i, @options[:outer_window].to_i
       window_from = current_page - inner_window
       window_to = current_page + inner_window

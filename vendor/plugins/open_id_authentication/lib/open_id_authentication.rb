@@ -7,7 +7,10 @@ require File.dirname(__FILE__) + '/open_id_authentication/mem_cache_store'
 require File.dirname(__FILE__) + '/open_id_authentication/request'
 require File.dirname(__FILE__) + '/open_id_authentication/timeout_fixes' if OpenID::VERSION == "2.0.4"
 
+
 module OpenIdAuthentication
+  require 'openid/extensions/ax'
+  
   OPEN_ID_AUTHENTICATION_DIR = RAILS_ROOT + "/tmp/openids"
 
   def self.store
@@ -125,7 +128,11 @@ module OpenIdAuthentication
 
       case open_id_response.status
       when OpenID::Consumer::SUCCESS
-        yield Result[:successful], identity_url, OpenID::SReg::Response.from_success_response(open_id_response)
+        if is_google_federated_login?(open_id_response)
+          yield Result[:successful], params['openid.identity'], OpenID::AX::FetchResponse.from_success_response(open_id_response)
+        else
+          yield Result[:successful], identity_url, OpenID::SReg::Response.from_success_response(open_id_response)
+        end
       when OpenID::Consumer::CANCEL
         yield Result[:canceled], identity_url, nil
       when OpenID::Consumer::FAILURE
@@ -140,11 +147,20 @@ module OpenIdAuthentication
     end
 
     def add_simple_registration_fields(open_id_request, fields)
-      sreg_request = OpenID::SReg::Request.new
-      sreg_request.request_fields(Array(fields[:required]).map(&:to_s), true) if fields[:required]
-      sreg_request.request_fields(Array(fields[:optional]).map(&:to_s), false) if fields[:optional]
-      sreg_request.policy_url = fields[:policy_url] if fields[:policy_url]
-      open_id_request.add_extension(sreg_request)
+      if is_google_federated_login?(open_id_request)
+        ax_request = OpenID::AX::FetchRequest.new
+        # Only the email attribute is currently supported by google federated login
+        email_attr = OpenID::AX::AttrInfo.new('http://schema.openid.net/contact/email', 'email', true)
+        ax_request.add(email_attr)
+        open_id_request.add_extension(ax_request)
+      else
+              
+        sreg_request = OpenID::SReg::Request.new
+        sreg_request.request_fields(Array(fields[:required]).map(&:to_s), true) if fields[:required]
+        sreg_request.request_fields(Array(fields[:optional]).map(&:to_s), false) if fields[:optional]
+        sreg_request.policy_url = fields[:policy_url] if fields[:policy_url]
+        open_id_request.add_extension(sreg_request)
+      end
     end
 
     def open_id_redirect_url(open_id_request, return_to = nil, method = nil)
@@ -172,5 +188,9 @@ module OpenIdAuthentication
           "Identity server timed out"
         end
       end.new
+    end
+    
+    def is_google_federated_login?(request_response)
+      return request_response.endpoint.server_url == "https://www.google.com/accounts/o8/ud"
     end
 end

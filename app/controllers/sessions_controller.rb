@@ -23,7 +23,9 @@ class SessionsController < ApplicationController
   end
 
   def open_id_authentication
-    authenticate_with_open_id(params[:openid_url], :required => [:nickname, :email]) do |result, identity_url|
+    openid_url = params[:use_google_account] ? "https://www.google.com/accounts/o8/id" : params[:openid_url] 
+    
+    authenticate_with_open_id(openid_url, :required => [:nickname, :email]) do |result, identity_url|
       if result.successful? && self.current_user = User.find_by_identity_url(identity_url)
         successful_login
       else
