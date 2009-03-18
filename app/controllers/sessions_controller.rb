@@ -1,9 +1,9 @@
-# This controller handles the login/logout function of the site.  
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  
+
   layout 'login'
-  
+
   def new
   end
 
@@ -23,9 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def open_id_authentication
-    openid_url = params[:use_google_account] ? "https://www.google.com/accounts/o8/id" : params[:openid_url] 
-    
-    authenticate_with_open_id(openid_url, :required => [:nickname, :email]) do |result, identity_url|
+    authenticate_with_open_id(params[:openid_url], :required => [:nickname, :email]) do |result, identity_url|
       if result.successful? && self.current_user = User.find_by_identity_url(identity_url)
         successful_login
       else
@@ -35,7 +33,7 @@ class SessionsController < ApplicationController
       end
     end
   end
-  
+
   protected
 
   def password_authentication
@@ -50,11 +48,11 @@ class SessionsController < ApplicationController
       render :action => :new
     end
   end
-  
+
   def successful_login
     # It's possible to use OpenID only, in which
     # case the following would update a user's email and nickname
-    # on login. 
+    # on login.
     #
     # This may give conflicts when used in combination with regular
     # user accounts.
@@ -65,7 +63,7 @@ class SessionsController < ApplicationController
     #   :login => "#{params[:openid.sreg.nickname]}",
     #   :email => "#{params[:openid.sreg.email]}"
     # )
-    
+
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
     redirect_back_or_default(root_path)

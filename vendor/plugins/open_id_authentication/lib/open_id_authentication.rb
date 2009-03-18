@@ -10,7 +10,7 @@ require File.dirname(__FILE__) + '/open_id_authentication/timeout_fixes' if Open
 
 module OpenIdAuthentication
   require 'openid/extensions/ax'
-  
+
   OPEN_ID_AUTHENTICATION_DIR = RAILS_ROOT + "/tmp/openids"
 
   def self.store
@@ -126,6 +126,7 @@ module OpenIdAuthentication
       open_id_response = timeout_protection_from_identity_server { open_id_consumer.complete(params_with_path, requested_url) }
       identity_url     = normalize_url(open_id_response.display_identifier) if open_id_response.display_identifier
 
+
       case open_id_response.status
       when OpenID::Consumer::SUCCESS
         if is_google_federated_login?(open_id_response)
@@ -154,7 +155,7 @@ module OpenIdAuthentication
         ax_request.add(email_attr)
         open_id_request.add_extension(ax_request)
       else
-              
+
         sreg_request = OpenID::SReg::Request.new
         sreg_request.request_fields(Array(fields[:required]).map(&:to_s), true) if fields[:required]
         sreg_request.request_fields(Array(fields[:optional]).map(&:to_s), false) if fields[:optional]
@@ -189,7 +190,7 @@ module OpenIdAuthentication
         end
       end.new
     end
-    
+
     def is_google_federated_login?(request_response)
       return request_response.endpoint.server_url == "https://www.google.com/accounts/o8/ud"
     end

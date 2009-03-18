@@ -8,6 +8,21 @@ Create a new <%= configatron.site_name %> account
 	To access <%= configatron.site_name %> you may sign up with your OpenID. If you don't have an OpenID yet, we recommend <a href="http://www.myopenid.com">MyOpenID</a>.
 </p>
 
+<script type="text/javascript" charset="utf-8">
+	function selecionaGoogle(){
+		ckBox = document.getElementById('use_google_account');
+		openid = document.getElementById('openid_url');
+		if(ckBox.checked){
+			openid.style.display="none"
+			openid.value = "https://www.google.com/accounts/o8/id"
+		}
+		else{
+			openid.style.display="block"
+			openid.value = ""
+		}
+
+	}
+</script>
 
 <% form_for :user, :url => users_path do |f| -%>
 	<%= error_messages_for :user %>
@@ -15,18 +30,19 @@ Create a new <%= configatron.site_name %> account
 		<legend>Signup with OpenID</legend>
 		<p><label for="openid_url">OpenID URL</label><br/>
 		<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %></p>
-		
+		<p><label for="use_google_account">Usar sua conta do Google:</label>
+		<%= check_box_tag 'use_google_account', 1, false, {:onclick=> "selecionaGoogle()"}%></p>
 		<div class="js_option">
-			<%= link_to_function "... or signup the old-fashioned way.", 
+			<%= link_to_function "... or signup the old-fashioned way.",
 			"Element.hide('openid_form');
 			 Element.show('oldfashioned_form');"
 			%>
 		</div>
 	</fieldset>
-	
 
-	
-	<fieldset id="oldfashioned_form" style="display: none">	
+
+
+	<fieldset id="oldfashioned_form" style="display: none">
 		<legend>Your Details</legend>
 		<p><label for="login">Login</label><br/>
 		<%= f.text_field :login %></p>
@@ -39,20 +55,20 @@ Create a new <%= configatron.site_name %> account
 
 		<p><label for="password_confirmation">Confirm Password</label><br/>
 		<%= f.password_field :password_confirmation %></p>
-		
+
 		<div class="js_option">
-			<%= link_to_function "... or signup with OpenID.", 
+			<%= link_to_function "... or signup with OpenID.",
 			"Element.hide('oldfashioned_form');
 			 Element.show('openid_form');"
 			%>
 		</div>
-		
+
 	</fieldset>
-	
+
 	<ul>
 		<li><%= link_to "Already signed up? Login now!", login_url %></li>
 	</ul>
-	
+
 	<div id="submitbutton">
 		<p><%= submit_tag 'Sign up' %></p>
 	</div>
