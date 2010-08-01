@@ -210,7 +210,6 @@ class UsersController < ApplicationController
   end
 
   def create_new_user(attributes)
-    debugger
     @user = User.new(attributes)
     if @user && @user.valid?
       if @user.not_using_openid?
