@@ -5,13 +5,16 @@
 <script type="text/javascript" charset="utf-8">
 	function selecionaGoogle(){
 		ckBox = document.getElementById('use_google_account');
+		label_openid = document.getElementById('label_openid_url');
 		openid = document.getElementById('openid_url');
 		if(ckBox.checked){
 			openid.style.display="none"
+			label_openid.style.display="none"
 			openid.value = "https://www.google.com/accounts/o8/id"
 		}
 		else{
 			openid.style.display="block"
+			label_openid.style.display="none"
 			openid.value = ""
 		}
 		
@@ -22,9 +25,9 @@
 	<fieldset>
 		<legend>Login with OpenID</legend>
 	
-		<p><label for="openid_url">OpenID URL</label><br/>
+		<p><label id="label_openid_url" for="openid_url">OpenID URL</label><br/>
 		<%= text_field_tag 'openid_url' %></p>
-		<p><label for="use_google_account">Usar sua conta do Google:</label>
+		<p><label for="use_google_account">Use your Google Account:</label>
 		<%= check_box_tag 'use_google_account', 1, false, {:onclick=> "selecionaGoogle()"}%></p>		
 	</fieldset>
 
