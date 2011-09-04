@@ -13,5 +13,5 @@ else
 end
 
 config.to_prepare do
-  ActionController::Base.send :include, OpenIdAuthentication
+  ActionController::Base.send :include, ::OpenIdAuthentication
 end

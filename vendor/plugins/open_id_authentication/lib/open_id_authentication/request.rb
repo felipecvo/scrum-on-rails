@@ -14,4 +14,4 @@ module OpenIdAuthentication
   end
 end
 
-ActionController::AbstractRequest.send :include, OpenIdAuthentication::Request
+ActionController::Request.send :include, OpenIdAuthentication::Request
