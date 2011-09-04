@@ -1,3 +1,8 @@
+PATH
+  remote: vendor/gems/configatron-2.1.5
+  specs:
+    configatron (2.1.5)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -49,6 +54,7 @@ DEPENDENCIES
   RedCloth
   capistrano
   capistrano-ext (= 1.2.1)
+  configatron (= 2.1.5)!
   json
   rails (= 2.3.10)
   ruby-openid (>= 2.0.4)
