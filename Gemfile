@@ -6,4 +6,4 @@ gem "capistrano"
 gem "json"
 gem "RedCloth"
 gem "sqlite3"
-
+gem "test-unit"
